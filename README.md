@@ -1,2 +1,2 @@
 # AmbienteWeb
-Este proyecto es creado para el desarrollo de ambiente we b
+Este proyecto es creado para el desarrollo de ambiente web
