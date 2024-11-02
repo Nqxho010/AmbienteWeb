@@ -1,0 +1,119 @@
+/* ================================================================ */
+/*                  VARIABLES */
+/* ================================================================ */
+:root {
+    /* COLORES */
+    --fondo: #E8E9EA;
+
+    --texto-oscuro: #012626;
+    --texto-claro: #F1F2E9;
+
+    --verde-oscuro: #012626;
+    --verde-claro: #014040; 
+
+    --rojo-oscuro: #400101;
+    --rojo-claro: #73161E;
+
+    /* OTROS */
+    --border-radius: 10px;
+
+}   
+
+/* ================================================================ */
+/*                  Estilos generales */
+/* ================================================================ */
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: var(--fondo); 
+    color: var(--texto-oscuro);
+}
+
+/* ================================================================ */
+/*                  COMPONENTES */
+/* ================================================================ */
+
+.header {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos del contenedor */
+    align-items: center; /* Requiere de flex para funcionar, alinea verticalmente */   
+    background-color: var(--verde-oscuro);
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* ========================================================================== */
+.logo {
+    display: flex;              
+    align-items: center;    
+    margin-left: auto;         
+}
+
+.logo__link {
+    display: flex;            
+    align-items: center;       
+    max-height: 50px;       
+    color: var(--texto-claro);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ========================================================================== */
+.navbar {
+    flex-grow: 1; /* Navbar ocupa el espacio disponible */
+    display: flex;     
+    justify-content: center; 
+}
+
+.navbar__list {    
+    padding: 0;
+    margin: 0;
+    display: flex; 
+}
+
+.navbar__link {
+    margin: 0px 20px;
+    text-decoration: none;
+    color: var(--texto-claro); 
+    padding: 10px; 
+    transition: background-color 0.3s; /* Transición para el fondo */
+}
+
+.navbar__link:hover {
+    background-color: var(--verde-claro); 
+}
+
+/* ======================================================================== */
+.user-menu {
+    position: relative; /* Necesario para el posicionamiento absoluto del dropdown */
+}
+
+.user-menu__icon {
+    color: var(--texto-claro);
+    font-size: 30px; 
+}
+
+.user-menu__dropdown {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Posicionar el menú en relación a su contenedor */
+    top: 100%; /* Colocar el menú justo debajo del ícono */
+    right: 0; /* Alinear a la derecha del contenedor */
+    background-color: var(--verde-oscuro); 
+    color: var(--texto-claro);
+    z-index: 1000; /* Asegurar que el menú esté por encima de otros elementos */
+    width: 150px;
+    border-radius: var(--border-radius);
+}
+
+.user-menu__dropdown--active {
+    display: block; 
+}
+
+.user-menu__item {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--texto-claro);
+}
+
