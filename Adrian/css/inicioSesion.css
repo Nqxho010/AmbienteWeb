@@ -1,0 +1,72 @@
+@import "constantes.css";
+
+.imagen-fondo {
+    background-image: url('https://www.promegaconnections.com/wp-content/uploads/2021/10/63985762-Sloth-Day-2-1024x512-1.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    min-height: 100vh; /* Asegura que la altura mínima sea toda la ventana */
+    width: 100%; 
+}
+
+.login {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: var(--fondo-transparencia);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+
+.login__logo{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--verde-oscuro);    
+    width: 100%;
+    height: 100px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.login__titulo {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.login__grupo-entrada {
+    margin-bottom: 20px;
+    text-align: center;   
+}
+
+.login__label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.login__input {
+    width: 80%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.login__cont-botones{
+    display: flex;
+    justify-content: center;
+    gap: 20px
+    
+}
+
+.login__cont-registro{
+    display: flex;
+    justify-content: center;
+}
+
+.login__mensaje-registro{}
+
+.login__registrarse{
+    font-weight: 700;
+    color: var(--rojo-oscuro);
+}
+
