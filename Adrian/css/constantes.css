@@ -4,6 +4,7 @@
 :root {
     /* COLORES */
     --fondo: #E8E9EA;
+    --fondo2: #ffffff;
     --fondo-transparencia: rgba(255, 255, 255, 0.8);
 
     --texto-oscuro: #012626;

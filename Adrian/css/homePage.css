@@ -1,0 +1,126 @@
+@import "constantes.css";
+
+.bienvenida{
+    width: 100%;
+    max-width: 700px;
+    padding: 5px 50px;
+    background-color: var(--fondo2);
+    margin: 30px auto 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.bienvenida__titulo{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.bienvenida__texto{
+    text-align: justify;
+}
+
+/* ============================================================================= */
+.emprendimientos-destacados{
+    background-color: var(--fondo2);
+    width: 1500px;
+    max-width: 80%;
+    margin: 30px auto 30px;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.emprendimientos-destacados__grupo {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos bajen a una nueva línea si no hay espacio */
+    gap: 20px; 
+    justify-content: space-around;
+}
+
+.emprendimientos-destacados__emprendimiento {
+    flex: 0 0 220px; 
+    height: 350px;
+    padding: 10px;
+    background-color: var(--fondo); 
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.emprendimientos-destacados__titulo{
+    font-size: 25px;
+    text-align: center;
+}
+
+.emprendimientos-destacados__nombre{
+    text-align: center;
+    font-size: 15px;
+}
+
+.emprendimientos-destacados__img{
+    width: 200px;  
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: var(--border-radius);
+}
+
+.emprendimientos-destacados__detalle{
+    text-align: justify;
+    font-size: 15px;
+}
+
+/* ============================================================================= */
+@media (max-width: 768px){
+    .bienvenida{
+        padding: 5px 15px;
+        max-width: 90%;
+    }
+    .bienvenida__titulo{
+        font-size: 20px;
+    }
+    .bienvenida__texto{
+        font-size: 13px;
+    }
+/* ============================= */
+    .emprendimientos-destacados{        
+        max-width: 90%;
+        margin: 20px auto 20px;
+        padding: 20px;
+    }
+
+    .emprendimientos-destacados__titulo{
+        font-size: 25px;
+    }
+
+    .emprendimientos-destacados__nombre{        
+        font-size: 13px;
+    }
+
+    .emprendimientos-destacados__detalle{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px){
+    .bienvenida{
+        padding: 5px 5px;
+        max-width: 95%;
+    }
+    .bienvenida__titulo{
+        font-size: 16px;
+    }
+    .bienvenida__texto{
+        font-size: 12px;
+    }
+
+/*===========================  */
+    .emprendimientos-destacados{        
+        max-width: 95%;
+        margin: 10px auto 10px;
+        padding: 10px;
+    }
+
+    .emprendimientos-destacados__titulo{
+        font-size: 16px;
+    }
+
+}
