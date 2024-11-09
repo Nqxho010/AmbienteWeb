@@ -11,8 +11,9 @@ body {
     font-family: Arial, sans-serif; 
     margin: 0; 
     padding: 0; 
-    background-color: var(--fondo-); 
+    background-color: var(--fondo); 
     color: var(--texto-oscuro);
+    min-height: 100%;
 }
 
 /* ================================================================ */
@@ -48,4 +49,45 @@ body {
 .boton-rojo:hover {
     background-color: var(--rojo-claro);
     transform: scale(1.05); 
+}
+
+
+
+.grid-container-wel {
+    display: grid;
+    place-items: center;  /* Centra el contenido en ambas direcciones */
+    width: 1000px;
+    background-color: #ffffff; /* Color de fondo */
+    margin: auto;
+    border-radius: 10px;
+}
+
+/* Estilos del recuadro */
+.grid-texto {
+    width: 80%;  /* Ajusta el tamaño del recuadro según necesites */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    text-align: center;  /* Centra el texto dentro del recuadro */
+}
+
+  .carousel-container-emp {
+    display: flex;
+    margin: auto;
+    overflow-x: auto; /* Permite el deslizamiento horizontal */
+    gap: 20px;        /* Espacio entre los cuadros */
+    padding: 20px;     /* Espacio dentro del contenedor */
+    width: 75%;       /* Ancho completo de la página */
+    background-color: hsl(0, 0%, 100%); 
+}
+
+.item-carousel-emp {
+    width: 250px; /* Ancho fijo para cada cuadro */
+    background-color: #ffffff;
+    border-radius: 8px;  /* Bordes redondeados */
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-shrink: 0; /* Evita que los cuadros se encojan */
+    transition: transform 0.3s ease; /* Efecto suave al deslizar */
 }
