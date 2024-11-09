@@ -6,51 +6,6 @@
     font-family: "Figtree", sans-serif;
 }
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(1, 75, 1);
-    padding: 10px;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 100px; 
-    height: 100px;
-    margin-right: 10px; 
-}
-
-.txtInicio {
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.header-options {
-    display: flex;
-    list-style: none;
-}
-
-.header-options li {
-    padding: 0 20px;
-}
-
-.header-options li a {
-    text-decoration: none;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: medium;
-}
 
 /* footer */
 footer {
@@ -85,7 +40,7 @@ article {
     transform-origin: center;
     transition: all 0.4s ease-in-out;
     overflow: hidden;
-    padding-top: 5%;
+    padding-top: 10%;
   }
   
   article a::after {
@@ -94,6 +49,10 @@ article {
     inset-inline: 0;
     cursor: pointer;
     content: "";
+  }
+  
+  .textProduct{
+    padding-bottom: 5%;
   }
   
   /* elementos del article*/
