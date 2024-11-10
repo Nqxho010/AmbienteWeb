@@ -64,7 +64,25 @@ article a .icon {
 .carritoTxt{
 text-align: justify;
 color: black;
+padding-left: 2%;
 }
-.anulaTXT{
-  color: #0b4591;
+.anular-btn{
+  color: rgb(48, 137, 179);
+  padding-left: 2%;
+  border: none;
+  background-color: white;
 }
+
+/* Estilo de cuantos articulos quedan de ese producto*/
+.textProduct{
+  padding-bottom: 2%;
+  color: red;
+}
+
+.eliminar-btn{
+  border: none; 
+  color:rgb(48, 137, 179);
+  cursor: pointer; 
+  background-color: white;
+}
+

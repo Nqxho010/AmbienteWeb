@@ -42,7 +42,7 @@
         </button>
     </header>
     <h1 class="carritoTxt">Carrito</h1>
-    <h5 class="anulaTXT">Anular la selección de todos los elementos</h5>
+    <button class="anular-btn">Anular la selección de todos los elementos</button>
     <section class="articles">
       <article>
           <div class="article-wrapper">
@@ -50,17 +50,17 @@
                   <img src="/public/img/imagenDePrueba.png" alt="" />
               </figure>
               <div class="article-body">
-                  <h2>Producto1</h2> <!--SE CONSULTA CUAL ARTICULO SELECCIONO DE PRODUCTOS Y SE AGREGA EL NOMBRE-->
+                  <h2 class="nameProducto">Producto1</h2>
+                   <!--SE CONSULTA CUAL ARTICULO SELECCIONO DE PRODUCTOS Y SE AGREGA EL NOMBRE-->
+                  <!--texto para colocar la descripcion del producto-->
                   <p class="textProduct">
-                      <!--texto de ejemplo para colocar la descripcion del producto-->
-                      Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet,
-                      congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim
-                      imperdiet egestas.
+                    Solo queda(n) * en stock (hay más unidades en camino). <!--Se debe hacer la consulta en la DB para saber cuantos productos quedan de este articulo-->
                   </p>
                   <div class="cantidad-container">
                     <button class="boton-menos" onclick="decrementar()">-</button>
                     <span id="cantidad">1</span>
                     <button class="boton-mas" onclick="incrementar()">+</button>
+                    <button class="eliminar-btn">Eliminar</button>
                     <script src="js/carritoDeCompras.js"></script>
                 </div>
               </div>
