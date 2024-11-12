@@ -1,0 +1,188 @@
+*{
+    /*
+    Aplica 'box-sizing: border-box' a todos los elementos,
+    lo que hace que el tamaño especificado del elemento incluya 
+    el contenido, padding y borde. El margin no está incluido en el tamaño total.
+    */
+    box-sizing: border-box;
+}
+
+.evitarOverFlow{
+    /* También hay valores como 'visible', 'hidden' y 'auto' */
+    /* 'scroll' muestra barras de desplazamiento siempre, incluso 
+    si no son necesarias */
+    overflow: scroll;
+
+    /* Control de desbordamiento con truncamiento */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Nota: 'text-overflow: ellipsis;' solo funciona en elementos de una línea
+    con 'white-space: nowrap' */
+    white-space: nowrap;
+}
+
+/* =========================================== */
+/*              Posicionamiento                */
+/* =========================================== */
+.absoluta{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* 'absolute' busca un contenedor con 'position: relative',
+   si no lo encuentra, usa el body */
+.contenedor{
+    position: relative;
+}
+.componente{
+    position: absolute;
+}
+
+.modal{
+    /* 'inset' agrega top, bottom, left y right en una sola propiedad */
+    inset: 0;
+    margin: auto;
+}
+
+.fixed{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+/* 'sticky' funciona como 'fixed' pero solo dentro 
+del contenedor padre y cuando hay scroll */
+.sticky{
+    position: sticky;
+    top: 10px; /* El punto en el que se "pega" */
+}
+
+/* 'z-index' controla el apilamiento de elementos.
+   Funciona solo con 'position' que no sea 'static'. */
+.padre{
+    position: relative;
+}
+.hermano1{
+    position: relative;
+    z-index: 1;
+}
+.hermano2{
+    position: relative;
+    z-index: 2;
+}
+.hermano3{
+    position: relative;
+    z-index: 3;
+}
+
+/* =========================================== */
+/*          Propiedades de Visualización       */
+/* =========================================== */
+.ocultar{
+    /* 'display: none;' oculta el elemento y no ocupa espacio en el DOM */
+    display: none;
+}
+.visible{
+    /* 'visibility: hidden;' oculta el elemento, pero mantiene el espacio en el DOM */
+    visibility: hidden;
+}
+
+/* =========================================== */
+/*                DISPLAY                      */
+/* =========================================== */
+.display-inline{
+    /* Los elementos con esta propiedad ignorarán las propiedades de ancho y alto,
+    y ocuparán solo el espacio necesario, ubicándose en línea con otros elementos.
+    No inician en una nueva línea y no ocupan todo el ancho del contenedor. */
+    display: inline;
+}
+
+.display-block{
+    /* Los elementos con 'display: block;' ocupan todo el ancho del contenedor,
+    comenzando en una nueva línea. */
+    display: block;
+}
+
+.display-inline-block{
+    /* Los elementos con 'display: inline-block;' respetan las propiedades de ancho
+    y alto, y pueden colocarse en la misma línea que otros elementos. */
+    display: inline-block;
+}
+
+/* =========================================== */
+/*                  FLEXBOX                    */
+/* =========================================== */
+.flex-container{
+    display: flex;
+
+    /* Dirección de los elementos */
+    flex-direction: row; /* Alinea los elementos de izquierda a derecha (por defecto) */
+    flex-direction: row-reverse; /* Alinea los elementos de derecha a izquierda */
+    flex-direction: column; /* Alinea los elementos de arriba hacia abajo */
+    flex-direction: column-reverse; /* Alinea los elementos de abajo hacia arriba */
+
+    /* 
+    'nowrap' es el valor por defecto y hace que los elementos se adapten a la fuerza 
+    para caber en el espacio disponible del contenedor flex, sin saltos de línea.
+    */
+    flex-wrap: nowrap;
+
+    /* 
+    'wrap' permite que los elementos respeten su tamaño natural, y si no caben, 
+    se hace un salto de línea para colocarlos en la siguiente fila.
+    */
+    flex-wrap: wrap;
+
+    /* 
+    'flex-flow' combina 'flex-direction' y 'flex-wrap' en una sola propiedad. 
+    */
+    flex-flow: row wrap;
+
+    /* 
+    'writing-mode' controla la dirección del texto y la orientación de los bloques. 
+    Es más común en aplicaciones de diseño multilingüe o formatos verticales.
+    */
+    writing-mode: vertical-lr;
+
+    /* Alinea los elementos horizontalmente al centro del contenedor */
+    justify-content: center; 
+
+    /* Opciones de 'justify-content': flex-start, flex-end, space-between, space-around, space-evenly */
+
+    /* Alinea los elementos verticalmente al centro del contenedor */
+    align-items: center; 
+
+    /* Opciones de 'align-items': stretch (por defecto), flex-start, flex-end, baseline */
+
+    /* Alinea las filas en un contenedor flexible con múltiples líneas */
+    align-content: space-between; 
+}
+
+.flex-item{
+    align-self: 0;
+    /* 'flex-grow' define cuánto puede crecer un elemento en relación con otros elementos flexibles */
+    flex-grow: 1; /* El elemento crece para ocupar el espacio disponible */
+
+    /* Valores por defecto */
+    flex-grow: 0; /* El elemento no crece más allá de su tamaño base */
+
+    /* 'flex-shrink' controla cuánto puede reducirse un elemento si no hay suficiente espacio */
+    flex-shrink: 1; /* Por defecto, los elementos pueden reducirse */
+
+    /* Tamaño base de los elementos. Si se usa 0, todos los elementos se distribuyen equitativamente */
+    flex-basis: auto;
+}
+
+/* Tamaños personalizados para los componentes, similar a las fracciones en CSS Grid */
+.flex-item1{
+    flex: 3;
+}
+.flex-item2{
+    flex: 2;
+}
+.flex-item3{
+    flex: 1;
+}

@@ -3,11 +3,15 @@
 @import "footer.css";
 @import "inicioSesion.css";
 @import "homePage.css";
+@import "perfilEmprendedor.css";
+@import "emprendimientos.css";
+@import "adminPerfilEmprendedor.css";
 
 
 /* ================================================================ */
 /*                  Estilos generales */
 /* ================================================================ */
+
 body {
     font-family: Arial, sans-serif; 
     margin: 0; 
