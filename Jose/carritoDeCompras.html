@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/carritoDeCompras.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/searchBar.css">
+    <!--agregar comando para hacerlo igual a todos los dispositivos-->
+</head>
+
+<body>
+    <header class="header">
+
+        <!-- Componente de logo -->
+        <div class="logo">
+            <a href="#" class="logo__link">
+                <img src="logo.JPG" class="logo__imagen" alt="Logo">
+                <span>Feria Virtual CR</span>
+            </a>
+        </div>
+
+        <!-- Componente de navegación -->
+        <nav class="navbar">
+            <ul class="navbar__list">
+                <li><a href="#" class="navbar__link">Inicio</a></li>
+                <li><a href="#" class="navbar__link">Emprendedores</a></li>
+                <li><a href="#" class="navbar__link">Productos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Componente de iconos -->
+        <div class="user-menu">
+            <a href="#" class="user-menu__icon" id="userIcon">&#x1F464;</a>
+            <div class="user-menu__dropdown" id="userDropdown">
+                <a href="#" class="user-menu__item">Iniciar sesión</a>
+            </div>
+        </div>
+        <button class="carritoDeCompra-boton">
+            <img class="carritoDeCompra" src="Img/carritoDeCompra.png" alt="Carrito de Compra" href="carritoDeCompras.html">
+        </button>
+    </header>
+    <h1 class="carritoTxt">Carrito</h1>
+    <button class="anular-btn">Anular la selección de todos los elementos</button>
+    <section class="articles">
+      <article>
+          <div class="article-wrapper">
+              <figure>
+                  <img src="/public/img/imagenDePrueba.png" alt="" />
+              </figure>
+              <div class="article-body">
+                  <h2 class="nameProducto">Producto1</h2>
+                   <!--SE CONSULTA CUAL ARTICULO SELECCIONO DE PRODUCTOS Y SE AGREGA EL NOMBRE-->
+                  <!--texto para colocar la descripcion del producto-->
+                  <p class="textProduct">
+                    Solo queda(n) * en stock (hay más unidades en camino). <!--Se debe hacer la consulta en la DB para saber cuantos productos quedan de este articulo-->
+                  </p>
+                  <div class="cantidad-container">
+                    <button class="boton-menos" onclick="decrementar()">-</button>
+                    <span id="cantidad">1</span>
+                    <button class="boton-mas" onclick="incrementar()">+</button>
+                    <button class="eliminar-btn">Eliminar</button>
+                    <script src="js/carritoDeCompras.js"></script>
+                </div>
+              </div>
+          </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+        <div>
+            <p class="footer__derechos">&copy; 2024 Feria Virtual CR. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
