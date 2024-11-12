@@ -56,7 +56,7 @@ body {
 .grid-container-wel {
     display: grid;
     place-items: center;  /* Centra el contenido en ambas direcciones */
-    width: 1000px;
+    width:80%;
     background-color: #ffffff; /* Color de fondo */
     margin: auto;
     border-radius: 10px;
@@ -64,7 +64,7 @@ body {
 
 /* Estilos del recuadro */
 .grid-texto {
-    width: 80%;  /* Ajusta el tamaño del recuadro según necesites */
+    width: auto;  /* Ajusta el tamaño del recuadro según necesites */
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -90,4 +90,54 @@ body {
     text-align: center;
     flex-shrink: 0; /* Evita que los cuadros se encojan */
     transition: transform 0.3s ease; /* Efecto suave al deslizar */
+}
+
+/* Estilos para la tabla */
+.table-productos{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+}
+
+/* Estilos para los encabezados de la tabla */
+th {
+    background-color: var(--verde-oscuro); /* Verde oscuro */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    
+}
+
+/* Estilos para las celdas */
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Alternar el color de fondo de las filas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Resaltar la fila cuando el usuario pasa el mouse */
+tr:hover {
+    background-color: #ddd;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal para el contenido de la página */
+.main-content {
+    flex: 1; /* Se expande para ocupar el espacio restante */
+    padding: 20px;
 }
