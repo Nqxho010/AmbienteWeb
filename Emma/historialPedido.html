@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/historialPpedido.css">
+    <title>Historial de Pedidos</title>
+</head>
+
+<body>
+    <header class="header">
+        <!-- Componente de logo -->
+        <div class="logo">
+            <a href="#" class="logo__link">
+                <img src="logo.JPG" class="logo__imagen" alt="Logo">
+                <span>Feria Virtual CR</span>
+            </a>
+        </div>
+
+        <!-- Componente de navegación -->
+        <nav class="navbar">
+            <ul class="navbar__list">
+                <li><a href="#" class="navbar__link">Inicio</a></li>
+                <li><a href="#" class="navbar__link">Emprendedores</a></li>
+                <li><a href="#" class="navbar__link">Productos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Componente de iconos -->
+        <div class="user-menu">
+            <a href="#" class="user-menu__icon" id="userIcon">&#x1F464;</a>
+            <div class="user-menu__dropdown" id="userDropdown">
+                <a href="#" class="user-menu__item">Iniciar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="historial-pedidos">
+        <h2 class="historial-pedidos__titulo">Historial de Pedidos</h2>
+        <table class="tabla-historial">
+            <thead>
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Unidades</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>02</td>
+                    <td>Serum Humectante</td>
+                    <td>₡5000</td>
+                    <td>20</td>
+                    <td>₡130000</td>
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td>Jabón Natural para manos sensibles</td>
+                    <td>₡4500</td>
+                    <td>15</td>
+                    <td>₡67500</td>
+                </tr>
+                <tr>
+                    <td>132</td>
+                    <td>Shampoo casero de aloe vera</td>
+                    <td>₡8000</td>
+                    <td>12</td>
+                    <td>₡96000</td>
+                </tr>
+                <tr>
+                    <td>05</td>
+                    <td>Pasta de dientes sin flúor</td>
+                    <td>₡5500</td>
+                    <td>7</td>
+                    <td>₡38500</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/menuUsuario.js"></script>
+
+    <footer class="footer">
+        <div>
+            <p class="footer__derechos">&copy; 2024 Feria Virtual CR. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
