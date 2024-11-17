@@ -2,7 +2,7 @@
         <!-- Componente de logo -->
         <div class="logo">
             <a href="#" class="logo__link">
-                <img src="logo.JPG" class="logo__imagen" alt="Logo">
+                <img src="/public/img/Logo.JPG" class="logo__imagen" alt="Logo">
                 <span>Feria Virtual CR</span>
             </a>
         </div>
