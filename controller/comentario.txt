@@ -1,0 +1,4 @@
+En esta carpeta iran todas las acciones espesificas, 
+como registrar un usuario, iniciar sesion, procesar una compra, 
+todas las acciones que no requieren de una vista para ejecutarse
+practicamente las acciones que llaman los formularios

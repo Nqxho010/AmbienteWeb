@@ -1,0 +1,4 @@
+En esta carpeta estaran los modelos de datos y sus 
+acciones con la base de datos, de esta forma en las vistas
+solo hay que llamar al modelo y su metodo correspondiente
+para obtener los datos de la BD.
