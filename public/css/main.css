@@ -1,0 +1,59 @@
+@import "constantes.css";
+@import "header.css";
+@import "footer.css";
+@import "inicioSesion.css";
+@import "homePage.css";
+@import "perfilEmprendedor.css";
+@import "emprendimientos.css";
+@import "adminPerfilEmprendedor.css";
+
+
+/* ================================================================ */
+/*                  Estilos generales */
+/* ================================================================ */
+
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    padding-bottom:60px;
+    background-color: #1111; 
+    color: var(--texto-oscuro);    
+}
+
+/* ================================================================ */
+/*                  Elementos reutilizables */
+/* ================================================================ */
+.boton-verde {
+    background-color: var(--verde-oscuro); 
+    color: var(--texto-claro);
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: var(--border-radius); 
+    cursor: pointer; 
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */    
+    text-decoration: none;
+}
+
+.boton-verde:hover {
+    background-color: var(--verde-claro);
+    transform: scale(1.05); 
+}
+
+.boton-rojo {
+    background-color: var(--rojo-oscuro); 
+    color: var(--texto-claro);
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: var(--border-radius); 
+    cursor: pointer; 
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+    text-decoration: none;
+}
+
+.boton-rojo:hover {
+    background-color: var(--rojo-claro);
+    transform: scale(1.05); 
+}

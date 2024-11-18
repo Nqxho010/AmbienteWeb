@@ -1,0 +1,20 @@
+/* ================================================================ */
+/*                  VARIABLES */
+/* ================================================================ */
+:root {
+    /* COLORES */
+    --fondo: #E8E9EA;
+    --fondo-transparencia: rgba(255, 255, 255, 0.8);
+
+    --texto-oscuro: #012626;
+    --texto-claro: #F1F2E9;
+
+    --verde-oscuro: #012626;
+    --verde-claro: #014040; 
+
+    --rojo-oscuro: #400101;
+    --rojo-claro: #73161E;
+
+    /* OTROS */
+    --border-radius: 10px;
+}   

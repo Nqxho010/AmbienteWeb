@@ -1,0 +1,14 @@
+@import "constantes.css";
+
+.footer{
+    background-color: var(--verde-oscuro);
+    padding: 15px;    
+    position: fixed;
+    bottom:0;
+    width: 100%;
+
+}
+
+.footer__derechos{
+    color: var(--texto-claro);
+}

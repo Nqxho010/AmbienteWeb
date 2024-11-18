@@ -1,0 +1,112 @@
+@import "constantes.css";
+@import "header.css";
+@import "footer.css";
+@import "inicioSesion.css";
+@import "main.css";
+
+
+.formulario-producto {
+    background-color: var(--fondo2);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.formulario-producto__titulo {
+    color: #333;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+
+.formulario-producto label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.formulario-producto__entrada,
+.formulario-producto__textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+
+.formulario-producto__textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+
+.formulario-producto__grupo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario-producto__grupo div {
+    width: 48%;
+}
+
+
+.subir-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.subir-imagen__boton {
+    margin-top: 5px;
+    padding: 8px 12px;
+    background-color: var(--verde-oscuro);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subir-imagen__boton:hover {
+    background-color: #45a049;
+}
+
+
+.botones-formulario {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.boton-cancelar {
+    background-color: #d9534f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-cancelar:hover {
+    background-color: #c9302c;
+}
+
+.boton-registrar {
+    background-color: var(--verde-oscuro);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-registrar:hover {
+    background-color: #4cae4c;
+}

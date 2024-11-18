@@ -1,0 +1,65 @@
+@import "constantes.css";
+
+.main-cont{
+    background-color: var(--fondo2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 1600px;
+    max-width: 90%;
+    border-radius: var(--border-radius);
+}
+.main-cont__dropdown{
+    border: 2px solid var(--verde-oscuro); 
+    border-radius: var(--border-radius); 
+    padding: 10px; 
+    margin-left: 20px;
+    font-size: 1.2rem; 
+    color: #333; 
+    width: 200px; 
+    appearance: none; 
+    box-sizing: border-box;
+} 
+.main-cont__emprendimientos{
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+    );
+    gap: 20px;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-items: center; /* Centra horizontalmente los elementos */
+}
+/* =========================== */
+
+.emprendimiento{
+    background-color: var(--fondo);
+    text-align: center;
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+.emprendimiento__img{
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease-in-out;
+}
+.emprendimiento__img:hover{
+    transform: scale(1.1);
+}
+.emprendimiento__nombre{
+    font-size: 1.4rem;
+
+}
+.emprendimiento__descripcion{
+    font-size: 1.2rem;
+}
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+.perfil-emprendimiento{
+    background-color: var(--fondo2);    
+    max-width: 1100px;
+    margin: 20px auto;
+    border-radius: var(--border-radius); 
+    padding: 20px;
+}
+.perfil-emprendimiento__grid{
+    display: grid;      
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(400px, 1fr)
+    );
+    justify-items: center;    
+    gap: 20px;
+}
+.perfil-emprendimiento__img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+.perfil-emprendimiento__group-info{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 10px;
+    width: 100%;
+}
+.perfil-emprendimiento__label{
+    font-size: 2rem;
+}
+.perfil-emprendimiento__nombre{
+    font-size: 1.4rem;
+}
+.perfil-emprendimiento__detalle{
+    font-size: 1.2rem;
+}
+.perfil-emprendimiento__boton{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+@media screen and (max-width: 768px) {
+    .perfil-emprendimiento__boton {
+        justify-content: center; 
+    }
+}
+/* ========= MODIFICAR ========================= */
+
+
+
+
