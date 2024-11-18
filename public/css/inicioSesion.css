@@ -1,18 +1,19 @@
 @import "constantes.css";
 
 .imagen-fondo {
-    background-image: url('https://www.promegaconnections.com/wp-content/uploads/2021/10/63985762-Sloth-Day-2-1024x512-1.jpg');
+    background-image: url('../img/fondoPerezoso.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
     min-height: 100vh; /* Asegura que la altura mínima sea toda la ventana */
     width: 100%; 
+    padding: 50px;
 }
 
 .login {
-    max-width: 400px;
-    margin: auto;
-    margin-top: 50px;
+    max-width: 400px;     
+    margin: auto;   
+    /* margin: 20px auto 0 auto; */
     background-color: var(--fondo-transparencia);
     border: 1px solid #ccc;
     border-radius: var(--border-radius);

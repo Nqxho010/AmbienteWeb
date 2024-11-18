@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+    $titulo = 'Inicio de Sesion';
+    $accion = '/AmbienteWeb/controller/autenticacion.php';
+    $cancelar = "/AmbienteWeb/index.php";
+    $registrarse = "/AmbienteWeb/views/sesion/registroUsuario.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de sesión</title>
+    require_once '../layout/head.php';
+?>
 
-    <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body class="imagen-fondo">
+<div class="imagen-fondo">
 
         <div class="login">
             <div class="login__logo">
@@ -17,7 +15,7 @@
                 <!-- reutilizamos el logo del header -->
                 <div class="logo">
                     <a href="#" class="logo__link">
-                        <img src="logo.JPG" class="logo__imagen" alt="Logo">
+                        <img src="/AmbienteWeb/public/img/logo.jpg" class="logo__imagen" alt="Logo">
                         <span>Feria Virtual CR</span>
                     </a>
                 </div>
@@ -25,7 +23,7 @@
             </div>
 
             <h2 class="login__titulo">Inicio de sesion</h2>
-            <form action="" method="POST">
+            <form action="<?= $accion ?>" method="POST">
 
                 <div class="login__grupo-entrada">
                     <label for="email" class="login__label">Correo electronico</label>
@@ -38,18 +36,18 @@
                 </div>
 
                 <div class="login__cont-botones">
-                <button class="boton-rojo">Cancelar</button>
-                <button type="submit" class="boton-verde">Ingresar</button>
+                    <a class="boton-rojo" href="<?= $cancelar; ?>">Cancelar </a>
+                    <button type="submit" class="boton-verde">Ingresar</button>
                 </div>
 
-                <hr>
+                <hr>                
                 <div class="login__cont-registro">
                     <p class="login__mensaje-registro">Aun no tienes una cuenta? 
-                        <span class="login__registrarse">Regístrate aquí</span> </p>
+                        <a href="<?= $registrarse ?>" class="login__registrarse">Regístrate aquí</a> </p>
                 </div>
             </form>
         </div>
 
-</body>
+</div>
 
 </html>
