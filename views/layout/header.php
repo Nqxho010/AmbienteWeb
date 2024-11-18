@@ -1,7 +1,7 @@
 <?php
 $menuHeader = [
     ["label" => "Inicio", "url" => "/AmbienteWeb/index.php"],
-    ["label" => "Emprendedores", "url" => "/AmbienteWeb/views/usuarios/emprendedores.php"],
+    ["label" => "Emprendedores", "url" => "/AmbienteWeb/views/usuarios/emprendedor1.php"],
     ["label" => "Productos", "url" => "/AmbienteWeb/views/usuarios/productos.php"]
 ];
 
