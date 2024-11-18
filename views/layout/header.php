@@ -2,7 +2,7 @@
 $menuHeader = [
     ["label" => "Inicio", "url" => "/AmbienteWeb/index.php"],
     ["label" => "Emprendedores", "url" => "/AmbienteWeb/views/usuarios/emprendedores.php"],
-    ["label" => "Emprendedores", "url" => "/AmbienteWeb/views/usuarios/productos.php"]
+    ["label" => "Productos", "url" => "/AmbienteWeb/views/usuarios/productos.php"]
 ];
 
 $menuUsuario = [
@@ -35,6 +35,8 @@ $menuUsuario = [
     
     <!-- Componente de iconos -->
     <div class="user-menu">
+
+
         <a href="#" class="user-menu__icon" id="userIcon">&#x1F464;</a>
 
         <div class="user-menu__dropdown" id="userDropdown">
@@ -46,3 +48,4 @@ $menuUsuario = [
         </div>
     </div>
 </header>
+
