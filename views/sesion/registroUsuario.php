@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+    $titulo = 'Registro de Usuario';
+    $accion = '/AmbienteWeb/controller/registroUsuario.php';
+    $cancelar = "/AmbienteWeb/index.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de sesión</title>
+    require_once '../layout/head.php';
+?>
 
-    <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body class="imagen-fondo">
+<div class="imagen-fondo">
 
         <div class="login">
             <div class="login__logo">
@@ -17,7 +14,7 @@
                 <!-- reutilizamos el logo del header -->
                 <div class="logo">
                     <a href="#" class="logo__link">
-                        <img src="logo.JPG" class="logo__imagen" alt="Logo">
+                        <img src="/AmbienteWeb/public/img/logo.jpg" class="logo__imagen" alt="Logo">
                         <span>Feria Virtual CR</span>
                     </a>
                 </div>
@@ -25,28 +22,27 @@
             </div>
 
             <h2 class="login__titulo">Registro de Usuario</h2>
-            <form action="" method="POST">
+            <form action="<?= $accion ?>" method="POST">
 
                 <div class="login__grupo-entrada">
                     <label for="email" class="login__label">Correo electronico</label>
-                    <input type="email" id="email" class="login__input" required autocomplete="email">
+                    <input type="email" id="email" name="correo" class="login__input" required autocomplete="email">
                 </div>
 
                 <div class="login__grupo-entrada">
                     <label for="password" class="login__label">Contraseña</label>
-                    <input type="password" id="password" class="login__input" required>
+                    <input type="password" id="password" name="password" class="login__input" required>
                 </div>
 
                 <div class="login__cont-botones">
-                <button class="boton-rojo">Cancelar</button>
-                <button type="submit" class="boton-verde">Registrar</button>
+                    <a class="boton-rojo" href="<?= $cancelar; ?>">Cancelar </a>
+                    <button type="submit" class="boton-verde">Ingresar</button>
                 </div>
 
-                <hr>
+                <hr>                
+                
                 
             </form>
         </div>
-
-</body>
-
+</div>
 </html>

@@ -1,9 +1,9 @@
 
 <?php 
-    require_once '/vistas/layout/head.php';
-    require_once '/vistas/layout/header.php';
+    $titulo = 'Inicio';
+    require_once './views/layout/head.php';
+    require_once './views/layout/header.php';
 ?>
-
 
 <div class="bienvenida">
     <h2 class="bienvenida__titulo">Bienvenidos a la mejor feria virtual de CR</h2>
@@ -72,5 +72,5 @@
 </div>
 
 <?php 
-    require_once '/vistas/layout/footer.php';
+    require_once './views/layout/footer.php';
 ?>
