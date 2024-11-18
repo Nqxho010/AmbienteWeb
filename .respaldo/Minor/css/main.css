@@ -51,7 +51,16 @@ body {
     transform: scale(1.05); 
 }
 
+.form {
+    display: grid;
+    place-items: center;  /* Centra el contenido en ambas direcciones */
+    width:auto;
+    height: auto;
+    background-color: fondo; /* Color de fondo */
+    margin: auto;
+    border-radius: 10px;
 
+}
 
 .grid-container-wel {
     display: grid;
