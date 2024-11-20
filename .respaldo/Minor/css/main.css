@@ -52,22 +52,25 @@ body {
 }
 
 .form {
-    display: grid;
+    
     place-items: center;  /* Centra el contenido en ambas direcciones */
     width:auto;
     height: auto;
-    background-color: fondo; /* Color de fondo */
-    margin: auto;
+    margin: 20%;
+    padding: 20%;
     border-radius: 10px;
 
 }
+
+
 
 .grid-container-wel {
     display: grid;
     place-items: center;  /* Centra el contenido en ambas direcciones */
     width:80%;
-    background-color: #ffffff; /* Color de fondo */
-    margin: auto;
+    background-color: #a81616; /* Color de fondo */
+    margin: 20%;
+    padding: 20%;
     border-radius: 10px;
 }
 
@@ -80,7 +83,7 @@ body {
     text-align: center;  /* Centra el texto dentro del recuadro */
 }
 
-  .carousel-container-emp {
+.carousel-container-emp {
     display: flex;
     margin: auto;
     overflow-x: auto; /* Permite el deslizamiento horizontal */
