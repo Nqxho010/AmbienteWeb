@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>ProductosEmp</title>
+    <title>Emprendedores</title>
 
     
 </head>
@@ -33,6 +33,7 @@
             </ul>
         </nav>
 
+        <!-- Componente de iconos -->
         <div class="user-menu">            
             <a href="#" class="user-menu__icon" id="userIcon">&#x1F464;</a>
 
@@ -41,38 +42,40 @@
             </div>
         </div>
     </header>
-    <h3> Mis productos > Nuevo</h3>
 
-    <div class="flex-container">
-        <form class="form">
-            
-            
-            <label for="nombre">Nombre del Producto:</label>
-            <input type="text" id="nombre" placeholder="Ingresar nombre del Producto:" required>
+        <br>
+
+        <div class="flex-container">
+            <form class="form">
+
+            <label for="FotoPerfil">Foto de perfil:</label>
+            <input type="image" id="fotoperfil" placeholder="Juan" required>
             <br>
-            <label for="nombre">Nombre del Emprendimiento:</label>
+
+            <label for="nombre">Nombre del Usuario:</label>
+            <input type="text" id="nombre" placeholder="Juan" required>
+            <br>
+            <label for="nombre">Apellidos del Usuario:</label>
             <input type="text" id="Emprendimiento" placeholder="Selecciona nombre del Producto:" required>
             <br>
-            <label for="Categoria">Categoria del Producto:</label>
-            <input type="number" id="idcategoria" placeholder="Seleccionar Categoria del Producto:" required>
+            <label for="Categoria">Correo:</label>
+            <input type="email" id="idcategoria" placeholder="Seleccionar Categoria del Producto:" required>
             <br>
-            <label for="descripcion">Descripcion:</label>
-            <input type="number" id="salarioBruto" placeholder="Ingresa tu salario bruto" required>
+            <label for="descripcion">Provincia:</label>
+            <input type="text" id="salarioBruto" placeholder="Ingresa tu salario bruto" required>
             <br>
-            <label for="precio">Precio (₡):</label>
-            <input type="number" id="precio" placeholder="Ingresar Precio" required>
+            <label for="precio">Direccion:</label>
+            <input type="text" id="precio" placeholder="Ingresar Precio" required>
             <br>
-            <label for="stock">Stock:</label>
-            <input type="number" id="stock" placeholder="Ingresar Cantidad (Stock)" required>
+            <button class="boton-verde" type="submit">Editar</button>
             <br>
-            <label for="img">Imagen:</label>
-            <input type="image" id="img" placeholder="Insetar Imagen" >
-            
-            <br>
-            <button class="boton-verde" type="submit">Agregar</button>
-            
-        </form>
-    </div>
+            <button class="boton-rojo" type="submit">Eliminar Perfil</button>
+            </form>
+        </div>
+
+        <br>
+
+   
     
     <script src="js/menuUsuario.js"></script>
     <footer class="footer">
