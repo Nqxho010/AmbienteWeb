@@ -1,5 +1,5 @@
 <?php
-$titulo = 'Editar Perfil Emprendedor';
+$titulo = 'Editar Pedido Emprendedor';
 require_once '../layout/head.php';
 require_once '../layout/header.php';
 ?>
@@ -46,9 +46,11 @@ require_once '../layout/header.php';
    
     
     <script src="js/menuUsuario.js"></script>
-    <?php
-require_once '../layout/footer.php';
-?>
+    <footer class="footer">
+        <div>
+            <p class="footer__derechos">&copy; 2024 Feria Virtual CR. Todos los derechos reservados.</p>            
+        </div>
+    </footer>
 </body>
 
 </html>

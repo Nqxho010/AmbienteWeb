@@ -1,15 +1,48 @@
-<?php
-$titulo = 'Editar Pedido Emprendedor';
-require_once '../layout/head.php';
-require_once '../layout/header.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>EditarProductos</title>
+
+    
+</head>
 
 <body>
 
+    <header class="header">
+
+        <div class="logo">
+            <a href="#" class="logo__link">
+                <img src="logo.JPG" class="logo__imagen" alt="Logo">
+                <span>Feria Virtual CR</span>
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <ul class="navbar__list">
+                <li ><a href="#" class="navbar__link">Inicio</a></li>
+                <li ><a href="#" class="navbar__link">Emprendedores</a></li>
+                <li ><a href="#" class="navbar__link">Productos</a></li>
+                <li ><a href="#" class="navbar__link">Ventas</a></li>
+                <li ><a href="#" class="navbar__link">Pedidos</a></li>
+
+
+            </ul>
+        </nav>
+
+        <div class="user-menu">            
+            <a href="#" class="user-menu__icon" id="userIcon">&#x1F464;</a>
+
+            <div class="user-menu__dropdown" id="userDropdown">
+                <a href="#" class="user-menu__item">Iniciar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    
     <h3> Mis productos > Editar</h3>
 
     <div class="flex-container">
@@ -38,9 +71,11 @@ require_once '../layout/header.php';
     </div>
     
     <script src="js/menuUsuario.js"></script>
-    <?php
-require_once '../layout/footer.php';
-?>
+    <footer class="footer">
+        <div>
+            <p class="footer__derechos">&copy; 2024 Feria Virtual CR. Todos los derechos reservados.</p>            
+        </div>
+    </footer>
 </body>
 
 </html>
