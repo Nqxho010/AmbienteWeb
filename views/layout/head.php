@@ -7,4 +7,6 @@
     <link rel="stylesheet" href="/AmbienteWeb/public/css/main.css">
     <title><?= $titulo; ?></title>
 </head>
+
+
 <body>
