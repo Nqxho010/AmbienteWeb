@@ -3,6 +3,7 @@ $titulo = 'Emprendimientos';
 require_once '../layout/head.php';
 require_once '../layout/header.php';
 ?>
+
 <!-- ============================================================= -->
 <div class="main-cont">
 
@@ -19,26 +20,41 @@ require_once '../layout/header.php';
         <div class="emprendimiento">
             <img class="emprendimiento__img"
                 src="/AmbienteWeb/public/img/E.png">
-            <h3 class="emprendimiento__nombre">[Nombre emprendimiento]</h3>
+            <h3 class="emprendimiento__nombre">Pasteleria Dulce Masas Finas</h3>
             <p class="emprendimiento__desecripcion">[Esta es la ubicacion de la descripcion corta de del emprendimiento]</p>
+            <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor1.php'">Ingresar</button>
         </div>
 
         <div class="emprendimiento">
             <img class="emprendimiento__img"
-                src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg">
-            <h3 class="emprendimiento__nombre">[Nombre emprendimiento]</h3>
+                src="/AmbienteWeb/public/img/joyeria.png">
+            <h3 class="emprendimiento__nombre">La orchila Joyeria</h3>
             <p class="emprendimiento__desecripcion">[Esta es la ubicacion de la descripcion corta de del emprendimiento]</p>
+            <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor2.php'">Ingresar</button>
         </div>
 
         <div class="emprendimiento">
             <img class="emprendimiento__img"
-                src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg">
-            <h3 class="emprendimiento__nombre">[Nombre emprendimiento]</h3>
+                src="/AmbienteWeb/public/img/Emprendimiento3.png">
+            <h3 class="emprendimiento__nombre">Julia's Amiguromis</h3>
             <p class="emprendimiento__desecripcion">[Esta es la ubicacion de la descripcion corta de del emprendimiento]</p>
+            <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor3.php'">Ingresar</button>
         </div>
-
     </div>
 </div>
+
+<style>
+    .ingresar{
+        background-color: var(--verde-oscuro); 
+        color: var(--texto-claro);
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: var(--border-radius); 
+        cursor: pointer; 
+        font-weight: 700;
+        transition: background-color 0.3s, transform 0.3s; /* Transición suave */ 
+    }
+</style>
 
 <?php
 require_once '../layout/footer.php';

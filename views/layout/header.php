@@ -1,7 +1,7 @@
 <?php
 $menuHeader = [
     ["label" => "Inicio", "url" => "/AmbienteWeb/index.php"],
-    ["label" => "Emprendedores", "url" => "/AmbienteWeb/views/usuarios/emprendedor1.php"],
+    ["label" => "Emprendedores", "url" => "/AmbienteWeb/views/usuarios/emprendimientos.php"],
     ["label" => "Productos", "url" => "/AmbienteWeb/views/usuarios/productos.php"]
 ];
 
@@ -16,7 +16,7 @@ $menuUsuario = [
 <header class="header">
     <!-- Componente de logo -->
     <div class="logo">
-        <a href="#" class="logo__link">
+        <a href="/AmbienteWeb/index.php" class="logo__link">
             <img src="/AmbienteWeb/public/img/logo.jpg" class="logo__imagen" alt="Logo">
             <span>Feria Virtual CR</span>
         </a>

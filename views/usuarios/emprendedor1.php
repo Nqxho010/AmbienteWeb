@@ -3,10 +3,11 @@ $titulo = ' Emprendedor 1';
 require_once '../layout/header.php';
 ?>
 
-	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/styles.css">
+	
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/header.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/footer.css">
-
+	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/emprendedor1.css">
+		<h1 class="emprendimiento1">Pasteleria Dulce Masas Finas</h1>
 			<div class="item">
 				<figure>
 					<img
@@ -69,5 +70,5 @@ require_once '../layout/header.php';
 			?php include "js/index.js"; ?> Este es el js de los productos(se tiene que cambiar por php)
 		</script>
 		-->
-			<?php require_once '../layout/footer.php';?>
+		<?php require_once '../layout/footer.php'; ?>
 
