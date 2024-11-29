@@ -15,10 +15,10 @@ setInterval(() => {
 
 //----------------------------------------------------------ANIMACION DEL BOTON-------------------------------------
 
-//const prueba = document.getElementById('pruebaID');
-//txt.classList.add('progress');
+const prueba = document.getElementById('pruebaID');
+prueba.classList.add('progress');
 
-//setInterval(() => {
-  //prueba.classList.toggle('progress');
-  //prueba.classList.toggle('ready');
-//}, 3100); 
+setInterval(() => {
+  prueba.classList.toggle('progress');
+  prueba.classList.toggle('ready');
+}, 3100); 

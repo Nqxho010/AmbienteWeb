@@ -18,7 +18,7 @@ require_once '../layout/header.php';
 
         <div class="emprendimiento">
             <img class="emprendimiento__img"
-                src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg">
+                src="/AmbienteWeb/public/img/E.png">
             <h3 class="emprendimiento__nombre">[Nombre emprendimiento]</h3>
             <p class="emprendimiento__desecripcion">[Esta es la ubicacion de la descripcion corta de del emprendimiento]</p>
         </div>

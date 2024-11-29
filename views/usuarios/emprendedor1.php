@@ -3,31 +3,20 @@ $titulo = ' Emprendedor 1';
 require_once '../layout/header.php';
 ?>
 
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-	</head>
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/header.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/footer.css">
 
-	<body>
 			<div class="item">
 				<figure>
 					<img
-						src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+						src="/AmbienteWeb/public/img/E.png"
 						alt="producto"
 					/>
 				</figure>
 				<div class="info-product">
-					<h2>Audifonos</h2>
-					<p class="price">$20</p>
-					<p>esta seria la desccripcion del producto</p>
+					<h2>Pasteleria Dulce Masas Finas</h2>
+					<p>Es un rincón dedicado a la creación de experiencias dulces y únicas. Nos especializamos en la elaboración artesanal de pasteles, postres y panes de alta calidad, utilizando las mejores materias primas y cuidando cada detalle en el proceso.</p>
 					<button class="btn-add-cart">Añadir al carrito</button>
 				</div>
 			</div>
@@ -81,5 +70,4 @@ require_once '../layout/header.php';
 		</script>
 		-->
 			<?php require_once '../layout/footer.php';?>
-	</body>
-</html>
+

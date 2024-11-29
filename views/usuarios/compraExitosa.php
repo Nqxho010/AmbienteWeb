@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/compraExitosa.css">
 
+<body class="body">
 <div class="container">
   <div class="card">
   <svg id="check" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100    100" xml:space="preserve">
@@ -13,8 +14,9 @@
     <polyline id="tick" points="25,55 45,70 75,33" fill="transparent" />
   </svg>
     <h3 class="txtCompra" id="compraExitosa">Compra Exitosa!</h3>
-    <!--<button class="prueba" id="pruebaID">Volver</button>-->
+    <button class="boton-prueba" id="pruebaID" onclick="window.location.href='/AmbienteWeb/index.php'">Volver</button>
   </div>
 </div>
 
 <script src="/AmbienteWeb/public/js/compraExitosa.js"></script>
+</body>
