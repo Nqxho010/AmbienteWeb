@@ -30,9 +30,9 @@ require_once '../layout/header.php';
             <label for="precio">Direccion:</label>
             <input type="text" id="direccion" placeholder="100mts este ..." required>
             <br>
-            <button class="boton-verde" type="submit">Guardar Cambios</button>
+            <button class="boton-verde" onclick="window.location.href='IndexPerfil.php';">Aceptar Cambios</button>
             <br>
-            <button class="boton-rojo" type="submit">Cancelar</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Cancelar</button>
             </form>
         </div>
         <br>

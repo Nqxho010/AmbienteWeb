@@ -30,9 +30,9 @@ require_once '../layout/footer.php';
             <label for="precio">Direccion:</label>
             <input type="text" id="precio" placeholder="Ingresar Precio" required>
             <br>
-            <button class="boton-verde" type="submit">Editar</button>
-            <button class="boton-rojo" type="submit">Eliminar Perfil</button>
-            <button class="boton-rojo" type="submit">Cancelar</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Agregar</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Eliminar Perfil?</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Cancelar</button>
             </form>
         </div>
 

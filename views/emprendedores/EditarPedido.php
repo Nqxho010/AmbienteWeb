@@ -30,9 +30,10 @@ require_once '../layout/header.php';
             <label for="img">Imagen:</label>
             <input type="image" id="img" placeholder="Insetar Imagen" >
             <br>
-            <button class="boton-verde" type="submit">Editar</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Aceptar Cambios</button>
             <br>
-            <button class="boton-rojo" type="submit">Eliminar</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Eliminar</button>
+
 
         </form>
     </div>

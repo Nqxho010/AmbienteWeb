@@ -34,8 +34,8 @@ require_once '../layout/footer.php';
             <input type="image" id="img" placeholder="Insetar Imagen" >
             
             <br>
-            <button class="boton-verde" type="submit">Agregar</button>
-            <button class="boton-rojo" type="submit">Cancelar</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Agregar</button>
+            <button class="boton-verde" onclick="window.location.href='IndexEmp.php';">Cancelar</button>
             
         </form>
     </div>

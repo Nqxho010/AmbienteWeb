@@ -27,8 +27,8 @@ require_once '../layout/footer.php';
                 <td>₡10500</td>
                 <td>20</td>
                 <td>
-                <button class="boton-verde">Editar</button>
-                <button class="boton-rojo">Eliminar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarProducto.php';">Editar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarProducto.php';">Eliminar</button>
                 </td>
             </tr>
             <tr>
@@ -37,8 +37,8 @@ require_once '../layout/footer.php';
                 <td>₡11500</td>
                 <td>10</td>
                 <td>
-                <button class="boton-verde">Editar</button>
-                <button class="boton-rojo">Eliminar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarProducto.php';">Editar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarProducto.php';">Eliminar</button>
                 </td>
             </tr>
             <tr>
@@ -47,8 +47,8 @@ require_once '../layout/footer.php';
                 <td>₡10500</td>
                 <td>15</td>
                 <td>
-                <button class="boton-verde">Editar</button>
-                <button class="boton-rojo">Eliminar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarProducto.php';">Editar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarProducto.php';">Eliminar</button>
                 </td>
             </tr>
         </tbody>

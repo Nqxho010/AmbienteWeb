@@ -33,7 +33,7 @@ require_once '../layout/header.php';
                 <td>En camino</td>
                 <td>
                 <button class="boton-verde">Enviado</button>
-                <button class="boton-verde">Editar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarPedido.php';">Editar</button>
                 <button class="boton-rojo">Eliminar</button>
                 </td>
             </tr>
@@ -47,7 +47,7 @@ require_once '../layout/header.php';
                 <td>Pendiente</td>
                 <td>
                 <button class="boton-verde">Enviar</button>
-                <button class="boton-verde">Editar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarPedido.php';">Editar</button>
                 <button class="boton-rojo">Eliminar</button>
                 </td>
             </tr>
@@ -61,7 +61,7 @@ require_once '../layout/header.php';
                 <td>En camino</td>
                 <td>
                 <button class="boton-verde">Enviado</button>
-                <button class="boton-verde">Editar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarPedido.php';">Editar</button>
                 <button class="boton-rojo">Eliminar</button>
                 </td>
             </tr>
@@ -75,7 +75,7 @@ require_once '../layout/header.php';
                 <td>Pendiente</td>
                 <td>
                 <button class="boton-verde">Enviar</button>
-                <button class="boton-verde">Editar</button>
+                <button class="boton-verde" onclick="window.location.href='EditarPedido.php';">Editar</button>
                 <button class="boton-rojo">Eliminar</button>
                 </td>
             </tr>  
