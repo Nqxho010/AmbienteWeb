@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <title>EditarProductos</title>
+<?php
+$titulo = 'Editar Pedido';
+require_once '../layout/head.php';
+require_once '../layout/header.php';
+?>
 
-    
-</head>
+    <link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/editarPedidos.css">
 
-<body>
-
-    
-    <h3> Mis productos > Editar</h3>
+    <h3 class="productosTitulo"> Mis productos > Editar</h3>
 
     <div class="flex-container">
         <form class="form">
@@ -40,12 +34,6 @@
         </form>
     </div>
     
-    <script src="js/menuUsuario.js"></script>
-    <footer class="footer">
-        <div>
-            <p class="footer__derechos">&copy; 2024 Feria Virtual CR. Todos los derechos reservados.</p>            
-        </div>
-    </footer>
-</body>
+    <script src="/AmbienteWeb/public/js/menuUsuario.js"></script>
 
-</html>
+    <?php require_once '../layout/footer.php'; ?>
