@@ -1,5 +1,5 @@
 <?php
-$titulo = 'Index Emprendedores';
+$titulo = 'ListaPedidos';
 require_once '../layout/head.php';
 require_once '../layout/header.php';
 ?>
@@ -85,5 +85,5 @@ require_once '../layout/header.php';
         </div>
     
     <script src="js/menuUsuario.js"></script>
-    <?php require_once '../layout/footer.php'; ?>
+   
   

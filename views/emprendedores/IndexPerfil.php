@@ -31,7 +31,6 @@ require_once '../layout/footer.php';
             <input type="text" id="precio" placeholder="Ingresar Precio" required>
             <br>
             <button class="boton-verde" type="submit">Editar</button>
-            <br>
             <button class="boton-rojo" type="submit">Eliminar Perfil</button>
             <button class="boton-rojo" type="submit">Cancelar</button>
             </form>

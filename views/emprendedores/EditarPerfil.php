@@ -1,5 +1,5 @@
 <?php
-$titulo = 'Editar Pedido';
+$titulo = 'Editar Perfil';
 require_once '../layout/head.php';
 require_once '../layout/header.php';
 ?>

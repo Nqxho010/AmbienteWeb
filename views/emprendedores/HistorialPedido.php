@@ -1,5 +1,5 @@
 <?php
-$titulo = 'Index Emprendedores';
+$titulo = 'Historial Pedidos';
 require_once '../layout/head.php';
 require_once '../layout/header.php';
 require_once '../layout/footer.php';
