@@ -18,7 +18,7 @@ $menuUsuario = [
     <div class="logo">
         <a href="#" class="logo__link">
             <img src="/AmbienteWeb/public/img/logo.jpg" class="logo__imagen" alt="Logo">
-            <span>Feriiiia Virtual CR</span>
+            <span>Feria Virtual CR</span>
         </a>
     </div>
 

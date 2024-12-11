@@ -11,7 +11,7 @@ body {
     font-family: Arial, sans-serif; 
     margin: 0; 
     padding: 0; 
-    background-color: var(--fondo); 
+    background-color:var(--fondo); 
     color: var(--texto-oscuro);
     min-height: 100%;
 }
@@ -116,7 +116,7 @@ body {
     transition: transform 0.3s ease; /* Efecto suave al deslizar */
 }
 
-/* Estilos para la tabla */
+/* -------------------Estilos para la tabla-------------- */
 .table-productos{
     width: 100%;
     border-collapse: collapse;
@@ -164,6 +164,10 @@ html, body {
 .main-content {
     flex: 1; /* Se expande para ocupar el espacio restante */
     padding: 20px;
+}
+.table-img{
+    width: 50px;
+    height: 50px;
 }
 /*------------------------------Carrousel----------------------------------------*/
 .carousel-container-emp {

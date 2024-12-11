@@ -1,6 +1,6 @@
 <?php
 $titulo = ' Producto Empleado';
-require_once '../layout/head.php';
+require_once '../layout/heademp.php';
 require_once '../layout/header.php';
 require_once '../layout/footer.php';
 ?>
