@@ -1,9 +1,9 @@
 <?php
 $titulo = 'Index Emprendedores';
-require_once '../layout/head.php';
+require_once '../layout/heademp.php';
 require_once '../layout/header.php';
 ?>
-    <link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/Emprendedores.css">
+    <!--<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/Emprendedores.css">-->
 
         <br>
         <div class="grid-container-wel">

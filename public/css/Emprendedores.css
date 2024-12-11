@@ -165,7 +165,7 @@ html, body {
     flex: 1; /* Se expande para ocupar el espacio restante */
     padding: 20px;
 }
-/*Carrousel*/
+/*------------------------------Carrousel----------------------------------------*/
 .carousel-container-emp {
     display: flex;
     overflow-x: auto;
@@ -175,17 +175,16 @@ html, body {
 }
 
 .item-carouserl-emp {
-    min-width: 200px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgb(78, 78, 78);
     text-align: center;
 }
-
+/*Esta es la que responde a la imagen de corrousel*/
 .item-carouserl-emp img.carousel-img {
-    width: 100%;
-    height: auto;
+    width: 50px;
+    height: 50px;
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -193,16 +192,16 @@ html, body {
 .item-carouserl-emp h3 {
     margin: 0;
     font-size: 1.2em;
-    color: #333;
+    color: white;
 }
 
 .item-carouserl-emp p {
     margin: 5px 0 0;
     font-size: 1em;
-    color: #666;
+    color: white;
 }
 
 .carousel-img {
-    width: 20px;
-    height: 20px; /* Mantener la proporción */
+    width: 50px;
+    height: 50px; /* Mantener la proporción */
 }
