@@ -9,7 +9,7 @@ require_once '../layout/header.php';
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ".";
+$password = "";
 $database = "db_feria_virtual_cr";
 
 $conn = new mysqli($servername, $username, $password, $database);
@@ -20,7 +20,7 @@ if($conn->connect_error){
 ?>
 
  <?php
-$consulta = "SELECT nombre_emprendimiento, descripcion_larga FROM tam_emprendimientos";
+$consulta = "SELECT nombre_emprendimiento, descripcion_larga FROM tab_emprendimientos WHERE id_emprendimiento = 2" ;
 $resultado = $conn->query($consulta);
 ?>
 
@@ -53,23 +53,51 @@ $resultado = $conn->query($consulta);
         ?>
     </div>
 
-        <div class="emprendimiento">
-            <img class="emprendimiento__img"
-                src="/AmbienteWeb/public/img/joyeria.png">
-            <h3 class="emprendimiento__nombre">La orchila Joyeria</h3>
-            <p class="emprendimiento__desecripcion">[Esta es la ubicacion de la descripcion corta de del emprendimiento]</p>
-            <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor2.php'">Ingresar</button>
-        </div>
-
-        <div class="emprendimiento">
-            <img class="emprendimiento__img"
-                src="/AmbienteWeb/public/img/Emprendimiento3.png">
-            <h3 class="emprendimiento__nombre">Julia's Amiguromis</h3>
-            <p class="emprendimiento__desecripcion">[Esta es la ubicacion de la descripcion corta de del emprendimiento]</p>
-            <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor3.php'">Ingresar</button>
-        </div>
+    <?php
+        $consulta = "SELECT nombre_emprendimiento, descripcion_larga FROM tab_emprendimientos WHERE id_emprendimiento = 3" ;
+        $resultado = $conn->query($consulta);
+        ?>
+        <div class="main-cont__emprendimientos">
+    <?php
+        if ($resultado && $resultado->num_rows > 0) {
+            while ($fila = $resultado->fetch_assoc()) {
+                ?>
+                <div class="emprendimiento">
+                    <img class="emprendimiento__img" src="/AmbienteWeb/public/img/joyeria.png">
+                    <h3 class="emprendimiento__nombre"><?php echo htmlspecialchars($fila['nombre_emprendimiento']); ?></h3>
+                    <p class="emprendimiento__descripcion"><?php echo htmlspecialchars($fila['descripcion_larga']); ?></p>
+                    <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor1.php'">Ingresar</button>
+                </div>
+                <?php
+            }
+        } else {
+            echo "<p>No se encontraron resultados.</p>";
+        }
+        ?>
     </div>
-</div>
+
+    <?php
+        $consulta = "SELECT nombre_emprendimiento, descripcion_larga FROM tab_emprendimientos WHERE id_emprendimiento = 4" ;
+        $resultado = $conn->query($consulta);
+        ?>
+        <div class="main-cont__emprendimientos">
+    <?php
+        if ($resultado && $resultado->num_rows > 0) {
+            while ($fila = $resultado->fetch_assoc()) {
+                ?>
+                <div class="emprendimiento">
+                    <img class="emprendimiento__img" src="/AmbienteWeb/public/img/emprendimiento3.png">
+                    <h3 class="emprendimiento__nombre"><?php echo htmlspecialchars($fila['nombre_emprendimiento']); ?></h3>
+                    <p class="emprendimiento__descripcion"><?php echo htmlspecialchars($fila['descripcion_larga']); ?></p>
+                    <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor1.php'">Ingresar</button>
+                </div>
+                <?php
+            }
+        } else {
+            echo "<p>No se encontraron resultados.</p>";
+        }
+        ?>
+    </div>
 
 <style>
     .ingresar{
