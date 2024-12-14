@@ -63,6 +63,12 @@
 /* ======================================================================== */
 .user-menu {
     position: relative; /* Necesario para el posicionamiento absoluto del dropdown */
+    
+}
+
+.user-menu__name {
+    font-weight: 700;
+    color: var(--texto-claro);
 }
 
 .user-menu__icon {

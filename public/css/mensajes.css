@@ -1,0 +1,17 @@
+@import "constantes.css";
+
+.alerta {
+    display: flex;
+    justify-content: center; 
+    /* align-items: center; */
+    margin: auto;
+    font-size: 1.2rem; 
+    font-weight: 700;
+    color: var(--verde-oscuro);
+    height: 3rem;
+}
+
+
+.alerta--error{
+    color: var(--rojo-claro);
+}
