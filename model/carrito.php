@@ -62,17 +62,16 @@ class Carrito {
         }
     }
 
-    // Modificar la cantidad de un producto
-    public function modificarCantidad($idUsuario, $idProducto, $cantidad) {
-        try {
-            $sql = "UPDATE TAB_CARRITO_USUARIO SET cantidad = ? WHERE id_usuario = ? AND id_producto = ?";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("iii", $cantidad, $idUsuario, $idProducto);
-            return $stmt->execute();
-        } catch (Exception $e) {
-            return false;
-        }
-    }
+    // public function modificarCantidad($idUsuario, $idProducto, $cantidad) {
+    //     try {
+    //         $sql = "UPDATE TAB_CARRITO_USUARIO SET cantidad = ? WHERE id_usuario = ? AND id_producto = ?";
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->bind_param("iii", $cantidad, $idUsuario, $idProducto);
+    //         return $stmt->execute();
+    //     } catch (Exception $e) {
+    //         return false;
+    //     }
+    // }
 
 
     public function obtenerProductos($idUsuario) {

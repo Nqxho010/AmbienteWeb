@@ -42,7 +42,7 @@ require_once '../layout/header.php';
         <p><strong>Emprendimiento:</strong> <?= htmlspecialchars($producto['nombre_emprendimiento']) ?></p>
         
         <!-- Formulario para agregar al carrito -->
-        <form action="../../controller/agregarACarrito.php" method="POST">
+        <form action="../../controller/agregarACarrito.php" method="POST" class="producto__form-cantidad">
             <input type="hidden" name="idProducto" value="<?= htmlspecialchars($id_producto) ?>">
             <label for="cantidad">Cantidad:</label>
             <input type="number" id="cantidad" name="cantidad" min="1" max="<?= htmlspecialchars($producto['stock']) ?>" required>

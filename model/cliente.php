@@ -1,7 +1,7 @@
 <?php
 require_once 'db.php';
 
-// Modelo: Cliente.php
+
 class Cliente {
     private $conn;
 
