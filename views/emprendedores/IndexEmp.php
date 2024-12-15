@@ -17,26 +17,7 @@ require_once '../layout/header.php';
         <br>
 
         <div class="carousel-container-emp"><!--emprendedores-->
-            <div class="item-carouserl-emp">
-                <h3>Emprendimiento 1</h3>
-                <p>Descripción breve del emprendimiento 1.</p>
-            </div>
-            <div class="item-carouserl-emp">
-                <h3>Emprendimiento 2</h3>
-                <p>Descripción breve del emprendimiento 2.</p>
-            </div>
-            <div class="item-carouserl-emp">
-                <h3>Emprendimiento 3</h3>
-                <p>Descripción breve del emprendimiento 3.</p>
-            </div>
-            <div class="item-carouserl-emp">
-                <h3>Emprendimiento 4</h3>
-                <p>Descripción breve del emprendimiento 4.</p>
-            </div>
-            <div class="item-carouserl-emp">
-                <h3>Emprendimiento 5</h3>
-                <p>Descripción breve del emprendimiento 5.</p>
-            </div>
+            <?php include '../../model/carrouselindexemp.php'; ?>
         </div>
     
     <script src="js/menuUsuario.js"></script>
