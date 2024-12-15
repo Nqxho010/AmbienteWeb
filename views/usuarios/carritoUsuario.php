@@ -86,10 +86,16 @@ $totalCarrito = 0;
         </table>
         <h4 class="carrito__total">Total: ₡<span id="total-carrito"><?= number_format($totalCarrito, 1) ?></span></h4>
         <a href="#" class="boton-verde">CheckOut</a>
+
+        <!-- generarPedido.php -->
+        <form action="/AmbienteWeb/controller/generarPedido.php" method="POST">
+            <button type="submit" class="boton-verde">Generar Pedido</button>
+        </form>
+
     <?php endif; ?>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('.cantidad-input').on('change', function() {
@@ -97,13 +103,12 @@ $totalCarrito = 0;
             const nuevaCantidad = $(this).val();
             const maxCantidad = $(this).attr('max');
 
-            // Validar que la cantidad sea válida
+            // VALIDACION
             if (nuevaCantidad < 1 || nuevaCantidad > maxCantidad) {
                 alert('La cantidad debe estar entre 1 y ' + maxCantidad);
                 return;
             }
-
-            // Enviar la solicitud al controlador
+            
             $.ajax({
                 url: '/AmbienteWeb/controller/actualizarCarrito.php',
                 type: 'POST',
@@ -111,12 +116,11 @@ $totalCarrito = 0;
                     idProducto: idProducto,
                     cantidad: nuevaCantidad
                 },
-                success: function(response) {
-                    // Actualizar el total del producto y el total del carrito en la interfaz
-                    location.reload(); // Refresca la página para reflejar los cambios
+                success: function(response) {                    
+                    location.reload(); 
                 },
                 error: function() {
-                    alert('Error al actualizar la cantidad. Por favor, inténtalo nuevamente.');
+                    alert('Error al actualizar la cantidad.');
                 }
             });
         });

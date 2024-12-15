@@ -71,7 +71,8 @@ class Producto {
                         p.stock, 
                         p.url_imagen, 
                         c.detalle AS categoria,
-                        e.nombre_emprendimiento
+                        e.nombre_emprendimiento,
+                        p.id_emprendimiento
                     FROM TAB_PRODUCTOS p
                     INNER JOIN TAB_CATEGORIAS c ON p.id_categoria = c.id_categoria
                     INNER JOIN TAB_EMPRENDIMIENTOS e ON p.id_emprendimiento = e.id_emprendimiento
@@ -143,5 +144,25 @@ class Producto {
         }
     }
 
-    // Puedes agregar más métodos según tus necesidades (actualizar, buscar, etc.)
+
+    public function actualizarStock($id_producto, $nuevo_stock) {
+        try {
+            $sql = "UPDATE TAB_PRODUCTOS SET stock = ? WHERE id_producto = ?";
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+
+            $stmt->bind_param("ii", $nuevo_stock, $id_producto);
+            $resultado = $stmt->execute();
+            $stmt->close();
+            return $resultado;
+        } catch (Exception $e) {
+            error_log("Error al actualizar el stock: " . $e->getMessage());
+            return false;
+        }
+    }
+
+
 }
+?>

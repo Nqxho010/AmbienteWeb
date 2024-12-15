@@ -1,19 +1,18 @@
 <?php
-require_once '../../model/db.php'; // Incluye la conexión a la base de datos
+require_once '../../model/db.php'; 
 require_once '../../model/producto.php';
 require_once '../../model/categoria.php';
 
-// Manejo de excepciones para inicializar los modelos
 try {
-    $productoModel = new Producto($conn); // Usa $conn definida en db.php
-    $categoriaModel = new Categoria($conn); // Se asegura que Categoria reciba $conn
+    $productoModel = new Producto($conn);
+    $categoriaModel = new Categoria($conn); 
 } catch (Exception $e) {
     die("Error al inicializar los modelos: " . $e->getMessage());
 }
 
 $categoria = isset($_GET['categoria']) && is_numeric($_GET['categoria']) ? intval($_GET['categoria']) : null;
 
-// Obtiene los productos, con o sin filtro
+// Obtiene los productos
 try {
     if ($categoria) {
         $productos = $productoModel->obtenerProductosPorCategoria($categoria);
