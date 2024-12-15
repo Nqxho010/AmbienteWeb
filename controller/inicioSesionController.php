@@ -2,11 +2,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    //  Imprimir los datos de inicio de sesión para depuración
-    //  echo '<pre>';
-    //  echo "Correo: " . htmlspecialchars($_POST['correo']) . "\n";
-    //  echo "Password: " . htmlspecialchars($_POST['password']) . "\n";
-    //  echo '</pre>';
 
     require_once '../model/cliente.php'; 
 
@@ -22,10 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $usuario = $clienteModel->iniciarSesion($correo, $password);
 
-    // echo '<pre>';
-    // echo "Contenido de \$usuario:\n";
-    // var_dump($usuario);
-    // echo '</pre>';
 
     if ($usuario) {
         session_start();
