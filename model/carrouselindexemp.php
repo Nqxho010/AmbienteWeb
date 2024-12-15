@@ -1,6 +1,6 @@
-
 <?php
 include("db.php");
+// carrousel index emprendedor logica
 // Consultar los datos de emprendimientos
 $sql = "SELECT nombre_emprendimiento, descripcion_corta, url_imagen_perfil FROM tab_emprendimientos";
 $result = $conn->query($sql);

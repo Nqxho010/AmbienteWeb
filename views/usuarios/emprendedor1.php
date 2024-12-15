@@ -2,30 +2,12 @@
 $titulo = ' Emprendedor 1';
 require_once '../layout/header.php';
 ?>
+
+	
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/header.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/emprendedor1.css">
-
-	<?php
-		$consulta = "SELECT nombre_emprendimiento, descripcion_larga FROM tab_emprendimientos";
-		$resultado = $conn->query($consulta);
-		?>
-	
-	<?php
-		if ($resultado && $resultado->num_rows > 0) {
-    	while ($fila = $resultado->fetch_assoc()) {
-        ?>
-        <div class="emprendimiento">
-            <img class="emprendimiento__img" src="/AmbienteWeb/public/img/E.png">
-            <h3 class="emprendimiento__nombre"><?php echo htmlspecialchars($fila['nombre_emprendimiento']); ?></h3>
-            <p class="emprendimiento__descripcion"><?php echo htmlspecialchars($fila['descripcion_larga']); ?></p>
-        </div>
-        <?php
-    }
-} else {
-    echo "<p>No se encontraron resultados.</p>";
-}
-?>
+		<h1 class="emprendimiento1">Pasteleria Dulce Masas Finas</h1>
 			<div class="item">
 				<figure>
 					<img
@@ -83,8 +65,6 @@ require_once '../layout/header.php';
 			</div>
 		</div>
 		
-
-
 			<!--
 		<script>
 			?php include "js/index.js"; ?> Este es el js de los productos(se tiene que cambiar por php)

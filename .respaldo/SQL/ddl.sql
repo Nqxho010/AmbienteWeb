@@ -60,7 +60,7 @@ CREATE TABLE TAB_USUARIOS(
     nombre VARCHAR(20) NOT NULL,
     apellidos VARCHAR(50) NOT NULL,
     correo VARCHAR(50) UNIQUE NOT NULL,
-    contrasenia VARCHAR(20) NOT NULL,
+    contrasenia VARCHAR(255) NOT NULL,
     id_provincia INT,
     detalle_direccion VARCHAR(100),
     soft_delete TINYINT(1) DEFAULT 0,

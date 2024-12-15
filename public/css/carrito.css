@@ -1,0 +1,46 @@
+@import "constantes.css";
+
+.carrito{
+    background-color: var(--fondo2);
+    width: 1500px;
+    max-width: 80%;
+    margin: 30px auto 30px;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+.carrito__tittulo{
+
+}
+
+.carrito__tabla{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: center;
+    border: 2px solid var(--verde-oscuro);
+    border-radius: 5px; 
+    
+}
+
+.carrito__thead{
+    background-color: var(--verde-oscuro);
+    color: var(--texto-claro);
+    border-radius: var(--border-radius);
+}
+
+.carrito__thead th{
+    padding:15px 20px;
+    
+}
+.carrito__tbody tr{
+    
+    padding:10px;
+}
+
+.carrito__total{
+    margin-bottom: 20px;
+}
+

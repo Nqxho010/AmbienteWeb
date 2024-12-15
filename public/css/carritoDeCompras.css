@@ -1,0 +1,110 @@
+@import "header.css";
+@import "footer.css";
+
+
+/* Globales */
+*::after,
+*::before,
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+    font-family: 'Lato';
+    color: #333;
+}
+
+/* elementos del article*/
+article h2 {
+  margin: 0 0 18px 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.9rem;
+  letter-spacing: 0.06em;
+  color: var(--title-color);
+  transition: color 0.3s ease-out;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+article img {
+  max-width: 100%;
+  transform-origin: center;
+  transform: scale(var(--img-scale));
+  transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+  padding: 24px;
+}
+
+article a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #28666e;
+}
+
+article a:focus {
+  outline: 1px dotted #28666e;
+}
+
+article a .icon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  transform: translateX(var(--link-icon-translate));
+  opacity: var(--link-icon-opacity);
+  transition: all 0.3s;
+}
+
+
+.articles {
+  display: grid;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* Texto al inicio del carro*/
+.carritoTxt{
+text-align: justify;
+color: black;
+text-align: center;
+padding-left: 2%;
+}
+
+.cart-display{
+  text-align: justify;
+  color: black;
+  text-align: center;
+}
+
+.eliminar-btn{
+ /* border: none;*/ 
+  color:rgb(247, 8, 8);
+  cursor: pointer; 
+  background-color: white;
+}
+
+.pagar-btn{
+  background-color: var(--verde-oscuro); 
+    color: var(--texto-claro);
+    padding: 10px 20px; 
+    display:block; 
+    margin: 0 auto;
+    border: none; 
+    border-radius: var(--border-radius); 
+    cursor: pointer; 
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */ 
+}

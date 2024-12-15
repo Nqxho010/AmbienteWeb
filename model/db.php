@@ -6,9 +6,9 @@ $database = "db_feria_virtual_cr";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-if($conn->connect_error){
-    die("Conexio fallida");
-}else{
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}else {
     echo"coneccion exitosa";
 }
 ?>
