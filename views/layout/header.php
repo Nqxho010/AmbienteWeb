@@ -53,16 +53,16 @@ $nombreUsuario = $_SESSION['nombreUsuario'] ?? null;
                 <a class="user-menu__item" href="/AmbienteWeb/views/sesion/inicioSesion.php">Iniciar sesión</a>
             <?php else: ?>
                 <!-- LOGUEADO -->
-                <?php if ($_SESSION['idTipoUsuario'] == 1): ?>
+                <?php if ($nombreUsuario): ?>
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/perfilUsuario.php">Perfil</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/carritoUsuario.php">Carrito</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/historialUsuario.php">Historial</a>
-
-                <?php elseif ($_SESSION['idTipoUsuario'] == 2): ?>                    
+                <?php endif; ?>  
+                <?php if ($_SESSION['idTipoUsuario'] == 2): ?>                    
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/miTienda.php">Mi tienda</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misPedidos.php">Mis pedidos</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misProductos.php">Mis productos</a>                    
-                <?php endif; ?>                
+                    <?php endif; ?>                
                 <a class="user-menu__item" href="/AmbienteWeb/controller/cerrarSesion.php">Cerrar sesión</a>
             <?php endif; ?>
         </div>
