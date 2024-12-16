@@ -232,6 +232,45 @@ class Pedido {
             return [];
         }
     }
+
+    public function obtenerPedidosFinalizadosPorEmprendimiento($idEmprendimiento) {
+        try {
+            $sql = "
+                SELECT DISTINCT 
+                    p.id_pedido,
+                    u.nombre AS nombre_usuario,
+                    u.apellidos AS apellidos_usuario,
+                    p.fecha,
+                    ep.detalle AS estado_pedido
+                FROM TAB_PEDIDOS p
+                INNER JOIN TAB_PRODUCTOS_PEDIDO pp ON p.id_pedido = pp.id_pedido
+                INNER JOIN TAB_PRODUCTOS prod ON pp.id_producto = prod.id_producto
+                INNER JOIN TAB_USUARIOS u ON p.id_usuario = u.id_usuario
+                INNER JOIN TAB_ESTADO_PEDIDO ep ON p.id_estado_pedido = ep.id_estado_pedido
+                WHERE prod.id_emprendimiento = ? 
+                  AND p.id_estado_pedido IN (3, 4) -- Cancelado o Completado
+            ";
+            
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+            $stmt->bind_param("i", $idEmprendimiento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            $pedidos = [];
+            while ($pedido = $result->fetch_assoc()) {
+                $pedidos[] = $pedido;
+            }
+            $stmt->close();
+            return $pedidos;
+        } catch (Exception $e) {
+            error_log("Error al obtener pedidos finalizados: " . $e->getMessage());
+            return [];
+        }
+    }
+    
     
     
 }

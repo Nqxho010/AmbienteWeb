@@ -1,0 +1,41 @@
+@import "constantes.css";
+
+.pedidos-finalizados {
+    margin: 2rem auto;
+    max-width: 90%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pedidos-finalizados__titulo {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.pedidos-finalizados__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.pedidos-finalizados__tabla th,
+.pedidos-finalizados__tabla td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.pedidos-finalizados__tabla th {
+    background-color: #f8f8f8;
+    color: #555;
+}
+
+.pedidos-finalizados__tabla tr:hover {
+    background-color: #f1f1f1;
+}

@@ -163,5 +163,83 @@ class Producto {
         }
     }  
 
+    public function obtenerProductosPorEmprendimiento($idEmprendimiento) {
+        try {
+            $sql = "SELECT 
+                        id_producto, 
+                        nombre_producto, 
+                        descripcion, 
+                        precio, 
+                        stock, 
+                        url_imagen 
+                    FROM TAB_PRODUCTOS
+                    WHERE id_emprendimiento = ? AND soft_delete = 0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $idEmprendimiento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            $productos = [];
+            while ($fila = $result->fetch_assoc()) {
+                $productos[] = $fila;
+            }
+    
+            $stmt->close();
+            return $productos;
+        } catch (Exception $e) {
+            error_log("Error al obtener productos por emprendimiento: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function obtenerProductosDeshabilitadosPorEmprendimiento($idEmprendimiento) {
+        try {
+            $sql = "SELECT 
+                        id_producto, 
+                        nombre_producto, 
+                        descripcion, 
+                        precio, 
+                        stock, 
+                        url_imagen 
+                    FROM TAB_PRODUCTOS
+                    WHERE id_emprendimiento = ? AND soft_delete = 1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $idEmprendimiento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            $productos = [];
+            while ($fila = $result->fetch_assoc()) {
+                $productos[] = $fila;
+            }
+    
+            $stmt->close();
+            return $productos;
+        } catch (Exception $e) {
+            error_log("Error al obtener productos deshabilitados: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function activarProducto($id_producto) {
+        try {
+            $sql = "UPDATE TAB_PRODUCTOS SET soft_delete = 0 WHERE id_producto = ?";
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+    
+            $stmt->bind_param("i", $id_producto);
+            $resultado = $stmt->execute();
+            $stmt->close();
+            return $resultado;
+        } catch (Exception $e) {
+            error_log("Error al activar producto: " . $e->getMessage());
+            return false;
+        }
+    }
+    
+    
+
 }
 ?>
