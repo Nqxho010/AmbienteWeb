@@ -1,56 +1,65 @@
 <?php
-$titulo = ' Emprendedor 1';
+$titulo = 'Emprendimientos';
+require_once '../layout/head.php';
 require_once '../layout/header.php';
-require_once '../layout/footer.php';
-require_once "/AmbienteWeb/public/css/carritoDeCompras.css";
 ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resumen del Carrito</title>
-</head>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = ".";
+$database = "db_feria_virtual_cr";
 
-<body>
-    <!-- Header -->
-    <header class="header">
-        <!-- Componente de logo -->
-        <div class="logo">
-            <a href="#" class="logo__link">
-                <img src="Img/Logo.JPG" class="logo__imagen" alt="Logo">
-                <span>Feria Virtual CR</span>
-            </a>
-        </div>
+$conn = new mysqli($servername, $username, $password, $database);
 
-        <!-- Componente de navegación -->
-        <nav class="navbar">
-            <ul class="navbar__list">
-                <li><a href="#" class="navbar__link">Inicio</a></li>
-                <li><a href="#" class="navbar__link">Emprendedores</a></li>
-                <li><a href="#" class="navbar__link">Productos</a></li>
-            </ul>
-        </nav>
 
-        <!-- Componente de iconos -->
-        <div class="user-menu">
-            <a href="#" class="user-menu__icon" id="userIcon">&#x1F464;</a>
-            <div class="user-menu__dropdown" id="userDropdown">
-                <a href="#" class="user-menu__item">Iniciar sesión</a>
-            </div>
-        </div>
-    </header>
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
 
-    <h1 class="carritoTxt">Resumen del Carrito</h1>
-    <div class="cart-display">
-        <!-- Los productos y el total se cargarán aquí -->
-    </div>
-    <button class="eliminar-btn">Eliminar</button>
-    <button class="pagar-btn" onclick="window.location.href='checkout.php'">Prodceder con el pago</button>
-    <script src="/Jose/js/carritoDeCompras.js"></script>
+$sql = "
+    SELECT 
+        c.id_usuario, 
+        c.id_producto, 
+        c.cantidad, 
+        p.nombre_producto, 
+        p.precio 
+    FROM 
+        tab_carrito_usuario AS c 
+    JOIN 
+        tab_productos AS p ON c.id_producto = p.id_producto;
+";
 
+$result = $conn->query($sql);
+
+
+if ($result->num_rows > 0) {
+    echo "<table border='1' style='width:100%; text-align:center;'>
+            <tr>
+                <th>ID Usuario</th>
+                <th>Nombre del Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+            </tr>";
     
-    <?php include
-     require_once '../layout/footer.php';?>
-</body>
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>" . htmlspecialchars($row['id_usuario']) . "</td>
+                <td>" . htmlspecialchars($row['nombre_producto']) . "</td>
+                <td>¢" . htmlspecialchars($row['precio']) . "</td>
+                <td>" . htmlspecialchars($row['cantidad']) . "</td>
+              </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No se encontraron productos en el carrito.";
+}
 
-</html>
+
+$conn->close();
+?>
+
+<?php
+$titulo = 'Emprendimientos';
+require_once '../layout/footer.php';
+?>

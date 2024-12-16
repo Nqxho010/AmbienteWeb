@@ -9,7 +9,7 @@ require_once '../layout/header.php';
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ".";
+$password = "jimg01042006.";
 $database = "db_feria_virtual_cr";
 
 $conn = new mysqli($servername, $username, $password, $database);

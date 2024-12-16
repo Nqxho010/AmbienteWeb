@@ -5,7 +5,6 @@ require_once '../layout/header.php';
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/header.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/emprendedor1.css">
-	
 	<?php
 		$servername = "localhost";
 		$username = "root";
@@ -31,7 +30,9 @@ require_once '../layout/header.php';
 								<h3 class="nombre_producto"><?php echo htmlspecialchars($fila['nombre_producto']); ?></h3>
 								<p class="descripcion"><?php echo htmlspecialchars($fila['descripcion']); ?></p>
 								<p><strong>Precio:</strong> ¢<?php echo htmlspecialchars($fila['precio']); ?></p>
-								<button class="agregar" onclick="window.location.href=''">Agregar al carrito</button>
+								<button class="agregar" onclick="agregarAlCarrito(<?php echo $fila['id_producto']; ?>)">
+                                Agregar al carrito
+                                </button>
 						</div>
 						<?php
 				}
@@ -39,7 +40,6 @@ require_once '../layout/header.php';
 				echo "<p>No se encontraron productos para el emprendimiento con ID 2.</p>";
 		}
 ?>
-		
 
 		
 		<style>		
@@ -68,7 +68,7 @@ require_once '../layout/header.php';
     object-fit: cover; 
 }
 
-/* Estilo para el nombre del producto */
+
 .nombre_producto {
     font-size: 24px;
     font-weight: bold;
@@ -77,7 +77,7 @@ require_once '../layout/header.php';
     margin-bottom: 10px;
 }
 
-/* Descripción del producto */
+
 .descripcion {
     font-size: 16px;
     color: #666;
@@ -88,7 +88,7 @@ require_once '../layout/header.php';
 p{
 	text-align: center;
 }
-/* Precio del producto */
+
 p strong {
     font-weight: bold;
     color: #000;
@@ -102,7 +102,7 @@ p strong {
         border-radius: var(--border-radius); 
         cursor: pointer; 
         font-weight: 700;
-        transition: background-color 0.3s, transform 0.3s; /* Transición suave */ 
+        transition: background-color 0.3s, transform 0.3s; 
 }
 
 

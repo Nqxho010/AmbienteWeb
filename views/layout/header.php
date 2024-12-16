@@ -46,6 +46,10 @@ $menuUsuario = [
             }
             ?>            
         </div>
+        <!-- Ícono de carrito -->
+        <a href="/AmbienteWeb/views/usuarios/carritoDeCompras.php" class="user-menu__icon" id="cartIcon">&#x1F6D2;</a>
+        <span class="cart-count" id="cartCount">0</span> 
+</div>
     </div>
 </header>
 
