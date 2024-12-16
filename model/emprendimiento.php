@@ -112,4 +112,62 @@ class Emprendimiento {
             return false;
         }
     }
+
+    public function obtenerEmprendimientosPorCategoria($id_categoria) {
+        try {
+            $query = "SELECT 
+                        e.id_emprendimiento, 
+                        e.nombre_emprendimiento, 
+                        e.descripcion_corta, 
+                        e.url_imagen_perfil 
+                      FROM TAB_EMPRENDIMIENTOS e
+                      INNER JOIN TAB_EMPRENDIMIENTO_CATEGORIAS ec ON e.id_emprendimiento = ec.id_emprendimiento
+                      WHERE ec.id_categoria = ? AND e.soft_delete = 0";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("i", $id_categoria);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows === 0) {
+                return [];
+            }
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } catch (Exception $e) {
+            error_log("Error al obtener emprendimientos por categoría: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function obtenerEmprendimientoPorId($id_emprendimiento) {
+        try {
+            $sql = "SELECT 
+                        e.id_emprendimiento,
+                        e.nombre_emprendimiento,
+                        e.descripcion_corta,
+                        e.descripcion_larga,
+                        e.telefono,
+                        e.url_imagen_perfil,
+                        e.detalle_direccion,
+                        CONCAT(u.nombre, ' ', u.apellidos) AS nombre_propietario
+                    FROM TAB_EMPRENDIMIENTOS e
+                    INNER JOIN TAB_USUARIOS u ON e.id_usuario = u.id_usuario
+                    WHERE e.id_emprendimiento = ? AND e.soft_delete = 0";
+            
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $id_emprendimiento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            if ($result->num_rows === 0) {
+                return false; // No se encontró el emprendimiento
+            }
+    
+            return $result->fetch_assoc();
+        } catch (Exception $e) {
+            error_log("Error al obtener el emprendimiento: " . $e->getMessage());
+            return false;
+        }
+    }
 }

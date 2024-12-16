@@ -239,6 +239,35 @@ class Producto {
         }
     }
     
+    public function obtenerProductosPorUsuario($id_usuario) {
+        try {
+            $query = "SELECT 
+                        p.id_producto, 
+                        p.nombre_producto, 
+                        p.descripcion, 
+                        p.precio, 
+                        p.stock, 
+                        p.url_imagen 
+                      FROM TAB_PRODUCTOS p
+                      INNER JOIN TAB_EMPRENDIMIENTOS e ON p.id_emprendimiento = e.id_emprendimiento
+                      WHERE e.id_usuario = ? AND p.soft_delete = 0";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->bind_param("i", $id_usuario);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows === 0) {
+                return [];
+            }
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } catch (Exception $e) {
+            error_log("Error al obtener productos del usuario: " . $e->getMessage());
+            return [];
+        }
+    }
+    
     
 
 }

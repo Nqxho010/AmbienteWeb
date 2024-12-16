@@ -57,11 +57,17 @@ $nombreUsuario = $_SESSION['nombreUsuario'] ?? null;
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/perfilUsuario.php">Perfil</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/carritoUsuario.php">Carrito</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/historialUsuario.php">Historial</a>
+                    <a class="user-menu__item" href="/AmbienteWeb/views/sesion/editarPerfil.php">Editar Perfil</a>
+                    <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/detallesPerfilUser.php">Ver Perfil</a>                  
+
+
                 <?php endif; ?>  
                 <?php if ($_SESSION['idTipoUsuario'] == 2): ?>                    
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/adminPerfilEmprendedor.php">Mi tienda</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misPedidos.php">Mis pedidos</a>
-                    <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misProductos.php">Mis productos</a>                    
+                    <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misProductos.php">Mis productos</a> 
+                    <a class="user-menu__item" href="/AmbienteWeb/views/sesion/editarPerfil.php">Editar Perfil</a>
+                    <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/detallesPerfilEmp.php">Ver Perfil</a>                  
                     <?php endif; ?>                
                 <a class="user-menu__item" href="/AmbienteWeb/controller/cerrarSesion.php">Cerrar sesión</a>
             <?php endif; ?>
