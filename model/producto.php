@@ -161,8 +161,7 @@ class Producto {
             error_log("Error al actualizar el stock: " . $e->getMessage());
             return false;
         }
-    }
-
+    }  
 
 }
 ?>

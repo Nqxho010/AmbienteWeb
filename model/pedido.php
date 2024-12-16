@@ -65,10 +65,23 @@ class Pedido {
 
     public function obtenerPedidoPorId($idPedido) {
         try {
-            $sql = "SELECT p.id_pedido, p.id_usuario, p.fecha, ep.detalle AS estado_pedido
-                    FROM TAB_PEDIDOS p
-                    INNER JOIN TAB_ESTADO_PEDIDO ep ON p.id_estado_pedido = ep.id_estado_pedido
-                    WHERE p.id_pedido = ?";
+            $sql = "
+                SELECT 
+                    p.id_pedido,
+                    u.nombre AS nombre_usuario,
+                    p.fecha,
+                    ep.detalle AS estado_pedido,
+                    e.nombre_emprendimiento
+                FROM TAB_PEDIDOS p
+                INNER JOIN TAB_ESTADO_PEDIDO ep ON p.id_estado_pedido = ep.id_estado_pedido
+                INNER JOIN TAB_USUARIOS u ON p.id_usuario = u.id_usuario
+                INNER JOIN TAB_PRODUCTOS_PEDIDO pp ON p.id_pedido = pp.id_pedido
+                INNER JOIN TAB_PRODUCTOS prod ON pp.id_producto = prod.id_producto
+                INNER JOIN TAB_EMPRENDIMIENTOS e ON prod.id_emprendimiento = e.id_emprendimiento
+                WHERE p.id_pedido = ?
+                LIMIT 1;
+            ";
+    
             $stmt = $this->conn->prepare($sql);
             if (!$stmt) {
                 throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
@@ -84,6 +97,7 @@ class Pedido {
             return false;
         }
     }
+    
 
 
     public function obtenerProductosDelPedido($idPedido) {
@@ -107,5 +121,118 @@ class Pedido {
             return [];
         }
     }
+
+    /**
+     * Obtener pedidos con estado Activo o Enviado para un usuario específico.
+     *
+     * @param int $idUsuario
+     * @return array
+     */
+    public function obtenerPedidosActivosOEnviados($idUsuario) {
+        try {
+            $sql = "SELECT p.id_pedido, p.fecha, ep.detalle AS estado_pedido
+                    FROM TAB_PEDIDOS p
+                    INNER JOIN TAB_ESTADO_PEDIDO ep ON p.id_estado_pedido = ep.id_estado_pedido
+                    WHERE p.id_usuario = ? AND p.id_estado_pedido IN (1, 2)";
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+            $stmt->bind_param("i", $idUsuario);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $pedidos = $result->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+            return $pedidos;
+        } catch (Exception $e) {
+            error_log("Error al obtener pedidos activos o enviados: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    /**
+     * Obtener pedidos con estado Cancelado o Entregado para un usuario específico.
+     *
+     * @param int $idUsuario
+     * @return array
+     */
+    public function obtenerPedidosCanceladosOEntregados($idUsuario) {
+        try {
+            $sql = "SELECT p.id_pedido, p.fecha, ep.detalle AS estado_pedido
+                    FROM TAB_PEDIDOS p
+                    INNER JOIN TAB_ESTADO_PEDIDO ep ON p.id_estado_pedido = ep.id_estado_pedido
+                    WHERE p.id_usuario = ? AND p.id_estado_pedido IN (3, 4)";
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+            $stmt->bind_param("i", $idUsuario);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $pedidos = $result->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+            return $pedidos;
+        } catch (Exception $e) {
+            error_log("Error al obtener pedidos cancelados o entregados: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function actualizarEstadoPedido($idPedido, $nuevoEstado) {
+        try {
+            $sql = "UPDATE TAB_PEDIDOS SET id_estado_pedido = ? WHERE id_pedido = ?";
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+            $stmt->bind_param("ii", $nuevoEstado, $idPedido);
+            $resultado = $stmt->execute();
+            $stmt->close();
+            return $resultado;
+        } catch (Exception $e) {
+            error_log("Error al actualizar el estado del pedido: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function obtenerPedidosActivosPorEmprendimiento($idEmprendimiento) {
+        try {
+            $sql = "
+                SELECT DISTINCT 
+                    p.id_pedido,
+                    u.nombre AS nombre_usuario,
+                    u.apellidos AS apellidos_usuario,
+                    p.fecha,
+                    ep.detalle AS estado_pedido
+                FROM TAB_PEDIDOS p
+                INNER JOIN TAB_PRODUCTOS_PEDIDO pp ON p.id_pedido = pp.id_pedido
+                INNER JOIN TAB_PRODUCTOS prod ON pp.id_producto = prod.id_producto
+                INNER JOIN TAB_USUARIOS u ON p.id_usuario = u.id_usuario
+                INNER JOIN TAB_ESTADO_PEDIDO ep ON p.id_estado_pedido = ep.id_estado_pedido
+                WHERE prod.id_emprendimiento = ? 
+                  AND p.id_estado_pedido IN (1, 2) -- Activo o Enviado
+            ";
+            
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+            $stmt->bind_param("i", $idEmprendimiento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            $pedidos = [];
+            while ($pedido = $result->fetch_assoc()) {
+                $pedidos[] = $pedido;
+            }
+            $stmt->close();
+            return $pedidos;
+        } catch (Exception $e) {
+            error_log("Error al obtener pedidos activos por emprendimiento: " . $e->getMessage());
+            return [];
+        }
+    }
+    
+    
 }
 ?>

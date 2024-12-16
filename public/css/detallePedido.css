@@ -1,0 +1,49 @@
+.detalle-pedido {
+    margin: 2rem auto;
+    max-width: 80%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detalle-pedido__titulo {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.detalle-pedido__informacion {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.detalle-pedido__subtitulo {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.detalle-pedido__tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detalle-pedido__tabla th, .detalle-pedido__tabla td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.detalle-pedido__tabla th {
+    background-color: #f8f8f8;
+    color: #555;
+}
+
+.detalle-pedido__tabla tr:hover {
+    background-color: #f1f1f1;
+}

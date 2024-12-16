@@ -1,0 +1,68 @@
+@import "constantes.css";
+
+.pedidos {
+    margin: 2rem auto;
+    max-width: 90%;
+    width: 900px;
+    background-color: var(--fondo2);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pedidos__titulo {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.pedidos__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.pedidos__thead th {
+    background-color: var(--verde-oscuro);
+    color: var(--texto-claro);
+    text-align: left;
+    padding: 0.8rem;
+    border-bottom: 2px solid #ddd;
+}
+
+.pedidos__tbody tr:nth-child(even) {
+    background-color: var(--fondo);
+}
+
+.pedidos__tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.pedidos__tbody td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+
+.alerta {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.alerta-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alerta-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

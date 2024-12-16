@@ -1,0 +1,39 @@
+.pedidos-emprendimiento {
+    margin: 2rem auto;
+    max-width: 90%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pedidos-emprendimiento__titulo {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.pedidos-emprendimiento__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.pedidos-emprendimiento__tabla th,
+.pedidos-emprendimiento__tabla td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.pedidos-emprendimiento__tabla th {
+    background-color: #f8f8f8;
+    color: #555;
+}
+
+.pedidos-emprendimiento__tabla tr:hover {
+    background-color: #f1f1f1;
+}
