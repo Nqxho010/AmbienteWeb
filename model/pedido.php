@@ -63,12 +63,6 @@ class Pedido {
         }
     }
 
-    /**
-     * Obtener los detalles de un pedido por su ID.
-     *
-     * @param int $idPedido
-     * @return array|false
-     */
     public function obtenerPedidoPorId($idPedido) {
         try {
             $sql = "SELECT p.id_pedido, p.id_usuario, p.fecha, ep.detalle AS estado_pedido
@@ -91,12 +85,7 @@ class Pedido {
         }
     }
 
-    /**
-     * Obtener todos los productos de un pedido.
-     *
-     * @param int $idPedido
-     * @return array
-     */
+
     public function obtenerProductosDelPedido($idPedido) {
         try {
             $sql = "SELECT pp.id_producto, p.nombre_producto, pp.cantidad, pp.precio_unitario, (pp.cantidad * pp.precio_unitario) AS total

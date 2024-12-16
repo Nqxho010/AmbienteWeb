@@ -70,4 +70,29 @@ class Cliente {
         }
     }
 
+    public function obtenerInformacionCliente($idUsuario) {
+        try {
+            $sql = "SELECT 
+                        u.nombre,
+                        u.apellidos,
+                        p.detalle AS provincia,
+                        u.detalle_direccion 
+                    FROM 
+                        TAB_USUARIOS u
+                    LEFT JOIN 
+                        TAB_PROVINCIAS p ON u.id_provincia = p.id_provincia
+                    WHERE 
+                        u.id_usuario = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $idUsuario);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } catch (Exception $e) {
+            error_log("Error al obtener información del cliente: " . $e->getMessage());
+            return [];
+        }
+    }
+    
+
 }

@@ -71,6 +71,9 @@
     background-color: var(--fondo);
     border-radius: var(--border-radius);
     text-align: center;
+    display: flex; /* Activar flexbox */
+    flex-direction: column; /* Alinear los elementos verticalmente */
+    justify-content: space-between; /* Espaciado entre los elementos */
 }
 
 .productos__titulo {
@@ -93,6 +96,7 @@
 .productos__detalle {
     text-align: justify;
     font-size: 15px;
+    flex-grow: 1;
 }
 
 .productos__precio {
@@ -103,4 +107,7 @@
     margin-bottom: 15px;
 }
 
+.productos__boton{
+    margin-top: auto;
+}
 

@@ -40,6 +40,9 @@
 .emprendimientos-destacados__emprendimiento {
     flex: 0 0 220px; 
     height: 350px;
+    display: flex; /* Activar flexbox */
+    flex-direction: column; /* Alinear elementos verticalmente */
+    justify-content: space-between; /* Espaciado entre elementos */
     padding: 10px;
     background-color: var(--fondo); 
     border-radius: var(--border-radius);
@@ -66,6 +69,11 @@
 .emprendimientos-destacados__detalle{
     text-align: justify;
     font-size: 15px;
+    flex-grow: 1; 
+}
+
+.emprendimientos-destacados__boton{
+    margin-top: auto;
 }
 
 /* ============================================================================= */

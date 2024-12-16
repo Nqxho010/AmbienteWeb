@@ -71,11 +71,11 @@ input:focus {
   border-radius: 4px;
   padding: 5%;
   padding-top: 200px;
-  max-width: 600px;
+  max-width: 1000px;
   display: block;
   margin: auto;
   margin-top: -180px;
-  z-index: -999;
+  z-index: -1;
   position: relative;
 }
 
@@ -152,3 +152,19 @@ input:focus {
     text-align: center;
   }
 }
+
+.hr{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.checkout__tabla {
+  width: 90%;
+}
+
+.checkout__tabla th,
+.checkout__tabla td {
+    text-align: left; /* Centra el texto horizontalmente */
+    vertical-align: middle; /* Centra el texto verticalmente */
+}
+

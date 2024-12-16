@@ -65,7 +65,7 @@ require_once '../layout/header.php';
                         alt="<?= htmlspecialchars($producto['nombre_producto']) ?>">
                     <p class="productos__detalle"><?= htmlspecialchars($producto['descripcion']) ?></p>
                     <p class="productos__precio">Precio: ₡<?= number_format($producto['precio'], 2) ?></p>
-                    <a href="detallesProducto.php?idProducto=<?= htmlspecialchars($producto['id_producto']) ?>" class="boton-verde">Ver detalles</a>
+                    <a href="detallesProducto.php?idProducto=<?= htmlspecialchars($producto['id_producto']) ?>" class="boton-verde productos__boton">Ver detalles</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

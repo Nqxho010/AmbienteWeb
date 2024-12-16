@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $productosCarrito = $carritoModel->obtenerProductos($idUsuario);
 
     if (empty($productosCarrito)) {
-        header("Location: /AmbienteWeb/views/usuarios/carrito.php?error=Carrito%20vacío");
+        header("Location: /AmbienteWeb/views/usuarios/carritoUsuario.php?error=Imposible%20completar%20la%20compra,%20el%20carrito%20esta%20vacío");
         exit;
     }
 
@@ -55,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $conn->begin_transaction();
 
-    try {
-        // CPREAR PEDIDO POR PROVEEDOR
+    try {// CPREAR PEDIDO POR PROVEEDOR
+        
         foreach ($productosPorProveedor as $idEmprendimiento => $productos) {
 
             $idPedido = $pedidoModel->insertarPedido($idUsuario);
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn->commit();
 
         // Redireccionar con éxito
-        header("Location: /AmbienteWeb/views/pedidos.php?success=Pedido%20generado%20exitosamente");
+        header("Location: /AmbienteWeb/views/usuarios/pedidosUsuario.php?success=Pedido%20generado%20exitosamente");
         exit;
 
     } catch (Exception $e) {

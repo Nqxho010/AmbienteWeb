@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php'; // Asegúrate de que la ruta sea correcta
+require_once 'db.php';
 
 class Categoria {
     private $conn;

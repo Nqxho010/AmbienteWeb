@@ -61,36 +61,37 @@ $totalCarrito = 0;
                     <tr>
                         <td><?= htmlspecialchars($producto['nombre_producto']) ?></td>
                         <td>
-                            <input 
-                                type="number" 
-                                class="cantidad-input" 
-                                data-id-producto="<?= htmlspecialchars($producto['id_producto']) ?>" 
-                                min="1" 
-                                max="<?= htmlspecialchars($producto['stock']) ?>" 
-                                value="<?= htmlspecialchars($producto['cantidad']) ?>" 
-                                required>
+                            <form action="/AmbienteWeb/controller/actualizarCarrito.php" method="POST">
+                                <input type="hidden" name="idProducto" value="<?= htmlspecialchars($producto['id_producto']) ?>">
+                                <input 
+                                    type="number" 
+                                    name="cantidad" 
+                                    class="cantidad-input" 
+                                    data-id-producto="<?= htmlspecialchars($producto['id_producto']) ?>" 
+                                    min="1" 
+                                    max="<?= htmlspecialchars($producto['stock']) ?>" 
+                                    value="<?= htmlspecialchars($producto['cantidad']) ?>" 
+                                    required>
+                            </form>
                         </td>
                         <td><?= htmlspecialchars($producto['stock']) ?></td>
                         <td>₡<?= number_format($producto['precio'], 1) ?></td>
                         <td>₡<span class="total-producto"><?= number_format($producto['total'], 1) ?></span></td>
                         <td>
-                            <!-- Eliminar -->
+                            <!-- Botón para eliminar -->
                             <form action="/AmbienteWeb/controller/eliminarProductoCarrito.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="idProducto" value="<?= htmlspecialchars($producto['id_producto']) ?>">
                                 <button type="submit" class="boton-rojo">Eliminar</button>
                             </form>
                         </td>
                     </tr>
+
                 <?php endforeach; ?>
             </tbody>            
         </table>
         <h4 class="carrito__total">Total: ₡<span id="total-carrito"><?= number_format($totalCarrito, 1) ?></span></h4>
-        <a href="#" class="boton-verde">CheckOut</a>
-
-        <!-- generarPedido.php -->
-        <form action="/AmbienteWeb/controller/generarPedido.php" method="POST">
-            <button type="submit" class="boton-verde">Generar Pedido</button>
-        </form>
+        <a href="/AmbienteWeb/views/usuarios/checkout.php" class="boton-verde">CheckOut</a>
+        
 
     <?php endif; ?>
 </div>
@@ -99,32 +100,22 @@ $totalCarrito = 0;
 <script>
     $(document).ready(function() {
         $('.cantidad-input').on('change', function() {
-            const idProducto = $(this).data('id-producto');
-            const nuevaCantidad = $(this).val();
             const maxCantidad = $(this).attr('max');
+            const nuevaCantidad = $(this).val();
 
-            // VALIDACION
+            // VALIDACIÓN
             if (nuevaCantidad < 1 || nuevaCantidad > maxCantidad) {
                 alert('La cantidad debe estar entre 1 y ' + maxCantidad);
                 return;
             }
+
             
-            $.ajax({
-                url: '/AmbienteWeb/controller/actualizarCarrito.php',
-                type: 'POST',
-                data: {
-                    idProducto: idProducto,
-                    cantidad: nuevaCantidad
-                },
-                success: function(response) {                    
-                    location.reload(); 
-                },
-                error: function() {
-                    alert('Error al actualizar la cantidad.');
-                }
-            });
+            const form = $(this).closest('form'); 
+            form.submit();
         });
     });
+
+
 </script>
 
 <?php
