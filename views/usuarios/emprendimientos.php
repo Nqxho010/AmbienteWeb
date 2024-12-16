@@ -2,6 +2,7 @@
 $titulo = 'Emprendimientos';
 require_once '../layout/head.php';
 require_once '../layout/header.php';
+require_once '../../model/db.php'; 
 ?>
 
 <!-- ============================================================= -->

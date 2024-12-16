@@ -1,74 +1,48 @@
 <?php
-$titulo = ' Emprendedor 3';
+require_once '../../model/db.php'; 
+require_once '../../model/producto.php';
+require_once '../../model/categoria.php';
+require_once '../../model/emprendimiento1C.php';
+
+try {
+    $productoModel = new Producto($conn);
+    $categoriaModel = new Categoria($conn); 
+} catch (Exception $e) {
+    die("Error al inicializar los modelos: " . $e->getMessage());
+}
+
+
+$id_emprendimiento = isset($_GET['emprendimiento']) && is_numeric($_GET['emprendimiento']) ? intval($_GET['emprendimiento']) : 4;  // Id 4 de productos panaderia
+
+
+try {
+    $productos = $productoModel->obtenerProductosPorEmprendimiento($id_emprendimiento);
+} catch (Exception $e) {
+    $productos = [];
+    error_log("Error al obtener productos: " . $e->getMessage());
+}
+
+$titulo = 'Productos del Emprendimiento';
+require_once '../layout/head.php';
 require_once '../layout/header.php';
 ?>
 
-	
-	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/header.css">
-	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/footer.css">
-	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/emprendedor1.css">
-		<h1 class="emprendimiento1">Julia's Amiguromis</h1>
-			<div class="item">
-				<figure>
-					<img
-						src="/AmbienteWeb/public/img/Emprendimiento3.png"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>primerProducto</h2>
-					<p>descripcion.</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Reloj</h2>
-					<p class="price">$50</p>
-					<p>esta seria la desccripcion del producto</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Smartwatch</h2>
-					<p class="price">$90</p>
-					<p>esta seria la desccripcion del producto</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Perfume</h2>
-					<p class="price">$50</p>
-					<p>esta seria la desccripcion del producto</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-		</div>
-		
-			<!--
-		<script>
-			?php include "js/index.js"; ?> Este es el js de los productos(se tiene que cambiar por php)
-		</script>
-		-->
-		<?php require_once '../layout/footer.php'; ?>
-
+<div class="productos">
+    <div class="productos__grupo">
+        <?php if (!empty($productos)): ?>
+            <?php foreach ($productos as $producto): ?>
+                <div class="productos__item">
+                    <h4 class="productos__nombre"><?= htmlspecialchars($producto['nombre_producto']) ?></h4>
+                    <img class="productos__img" 
+                         src="<?= htmlspecialchars($producto['url_imagen']) ?>" 
+                         alt="<?= htmlspecialchars($producto['nombre_producto']) ?>">
+                    <p class="productos__detalle"><?= htmlspecialchars($producto['descripcion']) ?></p>
+                    <p class="productos__precio">Precio: ₡<?= number_format($producto['precio'], 2) ?></p>
+                    <a href="detallesProducto.php?idProducto=<?= htmlspecialchars($producto['id_producto']) ?>" class="boton-verde productos__boton">Ver detalles</a>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No se encontraron productos.</p>
+        <?php endif; ?>
+    </div>
+</div>
