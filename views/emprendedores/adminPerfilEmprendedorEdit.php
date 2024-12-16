@@ -2,29 +2,84 @@
 $titulo = 'Editar Perfil de Emprendedor';
 require_once '../layout/head.php';
 require_once '../layout/header.php';
+require_once '../../model/provincia.php';
+require_once '../../model/emprendimiento.php';
+require_once '../../model/db.php';
+
+
+
+if (!isset($_SESSION['idUsuario']) || !isset($_SESSION['idEmprendimiento'])) {
+    header("Location: /AmbienteWeb/views/sesion/inicioSesion.php?error=Debe%20iniciar%20sesión");
+    exit;
+}
+
+$idEmprendimiento = $_SESSION['idEmprendimiento'];
+
+$emprendimientoModel = new Emprendimiento($conn);
+$emprendimiento = $emprendimientoModel->obtenerDetalleEmprendimiento($idEmprendimiento);
+
+if (!$emprendimiento) {
+    die("Error: No se encontró información del emprendimiento.");
+}
+
+$provinciaModel = new Provincia($conn);
+$provincias = $provinciaModel->obtenerProvincias();
 ?>
 <!-- ==================================================================== -->
 
 <div class="perfil-emprendimiento">
-    <div class="perfil-emprendimiento__grid">
-        <img class="perfil-emprendimiento__img"
-            src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" alt="Imagen emprendimiento">
-        <div class="perfil-emprendimiento__group-info">
-            <label for="nombre-emprendimiento" class="perfil-emprendimiento__label">Nombre
-                emprendimiento</label>
-            <input id="nombre-emprendimiento" class="perfil-emprendimiento__nombre" type="text"
-                value="Nombre Emprendimiento">
+    <form action="/AmbienteWeb/controller/editarEmprendimiento.php" method="POST">
+        <div class="perfil-emprendimiento__grid">
+            <!-- Imagen -->
+            <div class="perfil-emprendimiento__group-info">
+                <label for="url-imagen" class="perfil-emprendimiento__label">URL de la Imagen</label>
+                <input id="url-imagen" name="url_imagen" class="perfil-emprendimiento__input" type="text"
+                    value="<?= htmlspecialchars($emprendimiento['url_imagen_perfil']) ?>" required>
+            </div>
 
-            <label for="detalle-emprendimiento" class="perfil-emprendimiento__label">Detalle del
-                emprendimiento</label>
-            <textarea id="detalle-emprendimiento" class="perfil-emprendimiento__detalle"
-                rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+            <!-- Información básica -->
+            <div class="perfil-emprendimiento__group-info">
+                <label for="nombre-emprendimiento" class="perfil-emprendimiento__label">Nombre del Emprendimiento</label>
+                <input id="nombre-emprendimiento" name="nombre_emprendimiento" class="perfil-emprendimiento__input"
+                    type="text" value="<?= htmlspecialchars($emprendimiento['nombre_emprendimiento']) ?>" required>
+
+                <label for="descripcion-corta" class="perfil-emprendimiento__label">Descripción Corta</label>
+                <input id="descripcion-corta" name="descripcion_corta" class="perfil-emprendimiento__input" type="text"
+                    value="<?= htmlspecialchars($emprendimiento['descripcion_corta']) ?>" required>
+
+                <label for="descripcion-larga" class="perfil-emprendimiento__label">Descripción Larga</label>
+                <textarea id="descripcion-larga" name="descripcion_larga" class="perfil-emprendimiento__textarea" rows="5"
+                    required><?= htmlspecialchars($emprendimiento['descripcion_larga']) ?></textarea>
+            </div>
+
+            <!-- Información de contacto y ubicación -->
+            <div class="perfil-emprendimiento__group-info">
+                <label for="telefono" class="perfil-emprendimiento__label">Teléfono</label>
+                <input id="telefono" name="telefono" class="perfil-emprendimiento__input" type="text"
+                    value="<?= htmlspecialchars($emprendimiento['telefono']) ?>" required>
+
+                <label for="provincia" class="perfil-emprendimiento__label">Provincia</label>
+                <select id="provincia" name="id_provincia" class="perfil-emprendimiento__select" required>
+                    <option value="">Seleccione una provincia</option>
+                    <?php foreach ($provincias as $provincia): ?>
+                        <option value="<?= htmlspecialchars($provincia['id_provincia']) ?>"
+                            <?= $provincia['id_provincia'] == $emprendimiento['id_provincia'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($provincia['detalle']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <label for="detalle-direccion" class="perfil-emprendimiento__label">Detalle de Dirección</label>
+                <textarea id="detalle-direccion" name="detalle_direccion" class="perfil-emprendimiento__textarea"
+                    rows="3" required><?= htmlspecialchars($emprendimiento['detalle_direccion']) ?></textarea>
+            </div>
         </div>
 
-    </div>
-    <div class="perfil-emprendimiento__boton">
-        <button class="boton-verde">Guardar cambios</button>
-    </div>
+        <!-- Botón de guardar -->
+        <div class="perfil-emprendimiento__boton">
+            <button type="submit" class="boton-verde">Guardar cambios</button>
+        </div>
+    </form>
 </div>
 
 <?php

@@ -59,7 +59,7 @@ $nombreUsuario = $_SESSION['nombreUsuario'] ?? null;
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/historialUsuario.php">Historial</a>
                 <?php endif; ?>  
                 <?php if ($_SESSION['idTipoUsuario'] == 2): ?>                    
-                    <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/miTienda.php">Mi tienda</a>
+                    <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/adminPerfilEmprendedor.php">Mi tienda</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misPedidos.php">Mis pedidos</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misProductos.php">Mis productos</a>                    
                     <?php endif; ?>                

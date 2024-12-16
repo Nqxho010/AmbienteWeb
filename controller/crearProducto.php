@@ -2,10 +2,10 @@
 require_once '../model/producto.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    session_start(); // Asegúrate de iniciar la sesión
+    session_start();
 
     try {
-        // Verificar que los datos requeridos están disponibles
+ 
         if (!isset($_SESSION['idEmprendimiento'])) {
             error_log("Error: idEmprendimiento no está definido en la sesión.");
             header("Location: /AmbienteWeb/views/sesion/inicioSesion.php?error=Debe%20iniciar%20sesión");
@@ -21,29 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $idCategoria = $_POST['idCategoria'] ?? null;
         $rutaImagen = $_POST['imagen'] ?? null;
 
-        // Registrar los datos recibidos para depuración
-        error_log("Datos recibidos: " . print_r([
-            'idEmprendimiento' => $idEmprendimiento,
-            'nombreProducto' => $nombreProducto,
-            'descripcion' => $descripcion,
-            'precio' => $precio,
-            'stock' => $stock,
-            'idCategoria' => $idCategoria,
-            'imagen' => $rutaImagen,
-        ], true));
-
-        // Validación básica de datos
         if (!$nombreProducto || !$descripcion || !$precio || !$stock || !$idCategoria || !$rutaImagen) {
             error_log("Error: Datos faltantes o inválidos.");
             header("Location: /AmbienteWeb/views/emprendedores/crearProducto.php?error=Datos%20faltantes%20o%20inválidos");
             exit;
         }
 
-        // Instanciar el modelo de producto
-        require_once '../model/db.php'; // Asegúrate de que $conn esté inicializado correctamente
+        require_once '../model/db.php'; 
         $productoModel = new Producto($conn);
 
-        // Intentar crear el producto
+
         error_log("Iniciando creación del producto...");
         $resultado = $productoModel->crearProducto($idEmprendimiento, $idCategoria, $nombreProducto, $descripcion, $precio, $stock, $rutaImagen);
 
