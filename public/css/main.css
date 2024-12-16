@@ -6,6 +6,7 @@
 @import "perfilEmprendedor.css";
 @import "emprendimientos.css";
 @import "adminPerfilEmprendedor.css";
+<<<<<<< Updated upstream
 @import "carritoDeCompras.css";
 @import "styles.css";
 @import "mensajes.css";
@@ -17,6 +18,13 @@
 @import "pedidosEmprendimiento.css";
 @import "misPedidosFinalizados.css";
 @import "misProductosDeshabilitados";
+=======
+/* @import "carritoDeCompras.css"; */
+/* @import "compraExitosa.css"; */
+/* @import "styles.css"; */
+/* @import "checkout.css"; */
+
+>>>>>>> Stashed changes
 
 
 /* ================================================================ */
@@ -69,3 +77,4 @@ body {
     background-color: var(--rojo-claro);
     transform: scale(1.05); 
 }
+
