@@ -7,68 +7,110 @@ require_once '../layout/header.php';
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/header.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="/AmbienteWeb/public/css/emprendedor1.css">
-		<h1 class="emprendimiento1">Julia's Amiguromis</h1>
-			<div class="item">
-				<figure>
-					<img
-						src="/AmbienteWeb/public/img/Emprendimiento3.png"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>primerProducto</h2>
-					<p>descripcion.</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Reloj</h2>
-					<p class="price">$50</p>
-					<p>esta seria la desccripcion del producto</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Smartwatch</h2>
-					<p class="price">$90</p>
-					<p>esta seria la desccripcion del producto</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Perfume</h2>
-					<p class="price">$50</p>
-					<p>esta seria la desccripcion del producto</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-		</div>
+	<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = ".";
+		$database = "db_feria_virtual_cr";
+
+		$conn = new mysqli($servername, $username, $password, $database);
+
+		if($conn->connect_error){
+				die("Conexio fallida");
+		}
+?>
+
+		<?php
+			$id_emprendimiento = 4;
+			$consulta = "SELECT * FROM `tab_productos` WHERE `id_emprendimiento` = $id_emprendimiento;";
+			$resultado = $conn->query($consulta);
+			if ($resultado && $resultado->num_rows > 0) {
+				while ($fila = $resultado->fetch_assoc()) {
+						?>
+						<div class="producto">
+						<img class="imagen_producto" src="<?php echo htmlspecialchars($fila['url_imagen']); ?>" alt="<?php echo htmlspecialchars($fila['nombre_producto']); ?>">
+								<h3 class="nombre_producto"><?php echo htmlspecialchars($fila['nombre_producto']); ?></h3>
+								<p class="descripcion"><?php echo htmlspecialchars($fila['descripcion']); ?></p>
+								<p><strong>Precio:</strong> ¢<?php echo htmlspecialchars($fila['precio']); ?></p>
+								<button class="agregar" onclick="window.location.href=''">Agregar al carrito</button>
+						</div>
+						<?php
+				}
+		} else {
+				echo "<p>No se encontraron productos para el emprendimiento con ID 2.</p>";
+		}
+?>
 		
-			<!--
-		<script>
-			?php include "js/index.js"; ?> Este es el js de los productos(se tiene que cambiar por php)
-		</script>
-		-->
+
+		
+		<style>		
+.producto {
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    vertical-align: top;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.imagen_producto {
+    width: 100%; 
+    max-width: 300px; 
+    height: auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 15px; 
+    object-fit: cover; 
+}
+
+/* Estilo para el nombre del producto */
+.nombre_producto {
+    font-size: 24px;
+    font-weight: bold;
+		text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Descripción del producto */
+.descripcion {
+    font-size: 16px;
+    color: #666;
+		text-align: center;
+    margin-bottom: 15px;
+}
+
+p{
+	text-align: center;
+}
+/* Precio del producto */
+p strong {
+    font-weight: bold;
+    color: #000;
+}
+
+.agregar{
+	background-color: var(--verde-oscuro); 
+        color: var(--texto-claro);
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: var(--border-radius); 
+        cursor: pointer; 
+        font-weight: 700;
+        transition: background-color 0.3s, transform 0.3s; /* Transición suave */ 
+}
+
+
+.container-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 		<?php require_once '../layout/footer.php'; ?>
 

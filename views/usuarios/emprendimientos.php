@@ -66,7 +66,7 @@ $resultado = $conn->query($consulta);
                     <img class="emprendimiento__img" src="/AmbienteWeb/public/img/joyeria.png">
                     <h3 class="emprendimiento__nombre"><?php echo htmlspecialchars($fila['nombre_emprendimiento']); ?></h3>
                     <p class="emprendimiento__descripcion"><?php echo htmlspecialchars($fila['descripcion_larga']); ?></p>
-                    <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor1.php'">Ingresar</button>
+                    <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor2.php'">Ingresar</button>
                 </div>
                 <?php
             }
@@ -89,7 +89,7 @@ $resultado = $conn->query($consulta);
                     <img class="emprendimiento__img" src="/AmbienteWeb/public/img/emprendimiento3.png">
                     <h3 class="emprendimiento__nombre"><?php echo htmlspecialchars($fila['nombre_emprendimiento']); ?></h3>
                     <p class="emprendimiento__descripcion"><?php echo htmlspecialchars($fila['descripcion_larga']); ?></p>
-                    <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor1.php'">Ingresar</button>
+                    <button class="ingresar" onclick="window.location.href='/AmbienteWeb/views/usuarios/emprendedor3.php'">Ingresar</button>
                 </div>
                 <?php
             }

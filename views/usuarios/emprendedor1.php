@@ -43,7 +43,6 @@ require_once '../layout/header.php';
 
 		
 		<style>		
-		./* Container principal para cada producto */
 .producto {
     width: 300px;
     padding: 20px;
@@ -57,6 +56,16 @@ require_once '../layout/header.php';
     text-align: center;
     overflow: hidden;
     box-sizing: border-box;
+}
+
+.imagen_producto {
+    width: 100%; 
+    max-width: 300px; 
+    height: auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 15px; 
+    object-fit: cover; 
 }
 
 /* Estilo para el nombre del producto */
@@ -83,13 +92,6 @@ p{
 p strong {
     font-weight: bold;
     color: #000;
-}
-
-/* Imagen del producto (opcional) */
-.producto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
 }
 
 .agregar{
