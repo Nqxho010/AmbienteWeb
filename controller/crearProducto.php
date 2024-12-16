@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Datos del formulario
         $idEmprendimiento = $_SESSION['idEmprendimiento'];
         $nombreProducto = $_POST['nombreProducto'] ?? null;
         $descripcion = $_POST['descripcion'] ?? null;
@@ -42,12 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: /AmbienteWeb/views/emprendedores/crearProducto.php?error=No%20se%20pudo%20crear%20el%20producto");
         }
     } catch (Exception $e) {
-        // Registrar cualquier excepción que ocurra
         error_log("Excepción en el controlador al crear producto: " . $e->getMessage());
         header("Location: /AmbienteWeb/views/emprendedores/crearProducto.php?error=Error%20interno");
     }
 } else {
-    // Método HTTP inválido
     error_log("Error: Método HTTP no permitido.");
     header("Location: /AmbienteWeb/views/emprendedores/crearProducto.php?error=Método%20no%20permitido");
     exit;

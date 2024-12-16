@@ -22,8 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $carritoModel = new Carrito($conn);
-
-        // Actualizar la cantidad del producto en el carrito
+        
         if ($carritoModel->actualizarCantidad($idUsuario, $idProducto, $cantidad)) {
             header("Location: /AmbienteWeb/views/usuarios/carritoUsuario.php?success=Cantidad%20actualizada");
         } else {

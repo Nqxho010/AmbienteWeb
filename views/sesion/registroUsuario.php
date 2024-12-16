@@ -18,10 +18,6 @@
 <div class="imagen-fondo">
     <div class="login">
         <div class="login__logo">
-<<<<<<< Updated upstream
-=======
-            <!-- Reutilizamos el logo del header -->
->>>>>>> Stashed changes
             <div class="logo">
                 <a href="#" class="logo__link">
                     <img src="/AmbienteWeb/public/img/logo.jpg" class="logo__imagen" alt="Logo">
@@ -31,7 +27,6 @@
         </div>
 
         <h2 class="login__titulo">Registro de Usuario</h2>
-<<<<<<< Updated upstream
 
         <!-- Mostrar mensaje de error si existe -->
         <?php if ($mensajeError): ?>
@@ -82,28 +77,6 @@
             </div>
 
             <hr>                
-=======
-        <form action="<?= $accion ?>" method="POST">
-            <!-- Campo de correo -->
-            <div class="login__grupo-entrada">
-                <label for="email" class="login__label">Correo Electrónico</label>
-                <input type="email" id="email" name="correo" class="login__input" required autocomplete="email" placeholder="Ingresa tu correo">
-            </div>
-
-            <!-- Campo de contraseña -->
-            <div class="login__grupo-entrada">
-                <label for="password" class="login__label">Contraseña</label>
-                <input type="password" id="password" name="password" class="login__input" required placeholder="Crea una contraseña">
-            </div>
-
-            <!-- Botones -->
-            <div class="login__cont-botones">
-                <a class="boton-rojo" href="<?= $cancelar; ?>">Cancelar</a>
-                <button type="submit" class="boton-verde">Registrarse</button>
-            </div>
-
-            <hr>
->>>>>>> Stashed changes
         </form>
     </div>
 </div>

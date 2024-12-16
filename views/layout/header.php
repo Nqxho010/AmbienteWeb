@@ -58,6 +58,7 @@ $nombreUsuario = $_SESSION['nombreUsuario'] ?? null;
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/carritoUsuario.php">Carrito</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/usuarios/historialUsuario.php">Historial</a>
                 <?php endif; ?>  
+                <hr>
                 <?php if ($_SESSION['idTipoUsuario'] == 2): ?>                    
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/adminPerfilEmprendedor.php">Mi tienda</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misPedidos.php">Mis pedidos</a>

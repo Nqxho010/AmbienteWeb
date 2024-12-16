@@ -103,13 +103,7 @@ $totalCarrito = 0;
             const maxCantidad = $(this).attr('max');
             const nuevaCantidad = $(this).val();
 
-            // VALIDACIÓN
-            if (nuevaCantidad < 1 || nuevaCantidad > maxCantidad) {
-                alert('La cantidad debe estar entre 1 y ' + maxCantidad);
-                return;
-            }
-
-            
+           
             const form = $(this).closest('form'); 
             form.submit();
         });

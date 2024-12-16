@@ -1,0 +1,45 @@
+@import "constantes.css";
+
+.perfil-usuario {
+    background-color: var(--fondo2);
+    width: 500px;
+    max-width: 80%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.perfil-usuario__titulo {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.perfil-usuario__info p {
+    margin: 10px 0;
+}
+
+.perfil-usuario__acciones {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .perfil-usuario {
+        max-width: 90%;
+    }
+    .perfil-usuario__titulo {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .perfil-usuario {
+        max-width: 95%;
+        padding: 10px;
+    }
+    .perfil-usuario__titulo {
+        font-size: 18px;
+    }
+}

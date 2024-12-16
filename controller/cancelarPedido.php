@@ -7,11 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idPedido'])) {
     $idPedido = (int)$_POST['idPedido'];
 
     try {
-        // Instancias de los modelos
         $pedidoModel = new Pedido($conn);
         $productoModel = new Producto($conn);
-
-        // Iniciar transacción
+       
         $conn->begin_transaction();
 
         // Verificar el estado actual del pedido
@@ -20,10 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idPedido'])) {
             throw new Exception("Solo se pueden cancelar pedidos con estado 'Activo'.");
         }
 
-        // Obtener productos asociados al pedido
         $productosPedido = $pedidoModel->obtenerProductosDelPedido($idPedido);
 
-        // Revertir el stock de los productos
+        // Revertir el stock
         foreach ($productosPedido as $producto) {
             $idProducto = $producto['id_producto'];
             $cantidad = $producto['cantidad'];
@@ -49,8 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idPedido'])) {
         }
 
         $conn->commit();
-
-        // Redireccionar con éxito
+       
         header("Location: /AmbienteWeb/index.php");
         exit;
     } catch (Exception $e) {

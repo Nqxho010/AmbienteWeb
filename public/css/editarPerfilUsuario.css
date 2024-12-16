@@ -1,0 +1,72 @@
+@import "constantes.css";
+
+.editar-direccion {
+    background-color: var(--fondo2);
+    width: 1500px;
+    max-width: 80%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.editar-direccion__titulo {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.editar-direccion__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.editar-direccion__group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.editar-direccion__group label {
+    font-weight: bold;
+}
+
+.editar-direccion__group select,
+.editar-direccion__group textarea {
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    background-color: var(--fondo);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.editar-direccion__boton {
+    align-self: center;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+    .editar-direccion {
+        max-width: 90%;
+    }
+    .editar-direccion__titulo {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .editar-direccion {
+        max-width: 95%;
+        padding: 10px;
+    }
+    .editar-direccion__titulo {
+        font-size: 18px;
+    }
+    .editar-direccion__group textarea {
+        font-size: 14px;
+    }
+}
