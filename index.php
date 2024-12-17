@@ -76,7 +76,7 @@ try {
                         src="<?= htmlspecialchars($emprendimiento['url_imagen_perfil']) ?>" 
                         alt="<?= htmlspecialchars($emprendimiento['nombre_emprendimiento']) ?>">
                     <p class="emprendimientos-destacados__detalle"><?= htmlspecialchars($emprendimiento['descripcion_corta']) ?></p>
-                    <a href="/AmbienteWeb/detalleEmprendimiento.php?id=<?= htmlspecialchars($emprendimiento['id_emprendimiento']) ?>" class="boton-verde emprendimientos-destacados__boton" >
+                    <a href="/AmbienteWeb/views/usuarios/detalleEmprendimiento.php?id=<?= htmlspecialchars($emprendimiento['id_emprendimiento']) ?>" class="boton-verde emprendimientos-destacados__boton" >
                         Ver detalles
                     </a>
                 </div>
