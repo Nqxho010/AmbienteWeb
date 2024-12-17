@@ -1,0 +1,77 @@
+@import "constantes.css";
+
+/* ===================== Estilos para perfil de emprendimiento ===================== */
+
+.perfil-emprendimiento {
+    background-color: var(--fondo2);
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.perfil-emprendimiento__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 20px;
+}
+
+.perfil-emprendimiento__group-info {
+    background-color: var(--fondo);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.perfil-emprendimiento__label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.perfil-emprendimiento__input,
+.perfil-emprendimiento__textarea,
+.perfil-emprendimiento__select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-emprendimiento__input:focus,
+.perfil-emprendimiento__textarea:focus,
+.perfil-emprendimiento__select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.perfil-emprendimiento__imagen-preview img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+.perfil-emprendimiento__boton {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.boton-verde {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-verde:hover {
+    background-color: var(--primary-hover);
+}

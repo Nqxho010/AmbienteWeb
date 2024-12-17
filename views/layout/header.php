@@ -62,6 +62,7 @@ $nombreUsuario = $_SESSION['nombreUsuario'] ?? null;
 
 
                 <?php endif; ?>  
+                <hr>
                 <?php if ($_SESSION['idTipoUsuario'] == 2): ?>                    
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/adminPerfilEmprendedor.php">Mi tienda</a>
                     <a class="user-menu__item" href="/AmbienteWeb/views/emprendedores/misPedidos.php">Mis pedidos</a>

@@ -38,7 +38,7 @@ $mensajeError = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : null;
     <?php endif; ?>
 
     <?php if (empty($pedidosActivos)) : ?>
-        <p>No tienes pedidos activos. <a href="/AmbienteWeb/views/usuarios/productos.php" class="boton-verde">Explora productos</a>.</p>
+        <p style="margin-top: 50px;">No tienes pedidos activos. <a href="/AmbienteWeb/views/usuarios/productos.php" class="boton-verde">Explora productos</a>.</p>
     <?php else : ?>
         <table class="pedidos__tabla">
             <thead class="pedidos__thead">

@@ -1,0 +1,107 @@
+@import "constantes.css";
+
+.productos {
+    background-color: var(--fondo2);
+    width: 1500px;
+    max-width: 80%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.productos__titulo {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.productos__acciones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.productos__boton {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.productos__mensaje-vacio {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.productos__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--fondo);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.productos__tabla thead {
+    background-color: var(--verde-oscuro);
+    color: var(--texto-claro);
+}
+
+.productos__tabla th, 
+.productos__tabla td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+.productos__acciones-td {
+    display: flex;
+    gap: 10px;
+}
+
+.productos__btn-accion {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .productos {
+        max-width: 90%;
+        padding: 20px;
+    }
+    .productos__titulo {
+        font-size: 20px;
+    }
+    .productos__tabla th, 
+    .productos__tabla td {
+        padding: 8px;
+        font-size: 14px;
+    }
+    .productos__boton,
+    .productos__btn-accion {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos {
+        max-width: 95%;
+        padding: 10px;
+    }
+    .productos__titulo {
+        font-size: 18px;
+    }
+    .productos__tabla th, 
+    .productos__tabla td {
+        padding: 5px;
+        font-size: 12px;
+    }
+    .productos__boton,
+    .productos__btn-accion {
+        font-size: 12px;
+        padding: 5px;
+    }
+}

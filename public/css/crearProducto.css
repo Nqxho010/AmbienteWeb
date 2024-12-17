@@ -1,0 +1,73 @@
+@import "constantes.css";
+
+.crear-producto {
+    background-color: var(--fondo2);
+    width: 1500px;
+    max-width: 80%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.crear-producto__titulo {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.crear-producto__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.crear-producto__group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.crear-producto__group label {
+    font-weight: bold;
+}
+
+.crear-producto__group input,
+.crear-producto__group textarea,
+.crear-producto__group select {
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    background-color: var(--fondo);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.crear-producto__boton {
+    align-self: center;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+    .crear-producto {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .crear-producto__titulo {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .crear-producto {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .crear-producto__titulo {
+        font-size: 18px;
+    }
+}

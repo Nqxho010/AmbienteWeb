@@ -8,7 +8,6 @@ class Carrito {
         $this->conn = $dbConnection;
     }
 
-    // Método para insertar un producto en el carrito
     public function insertarProducto($idUsuario, $idProducto, $cantidad) {
         try {
             $sql = "INSERT INTO TAB_CARRITO_USUARIO (id_usuario, id_producto, cantidad) VALUES (?, ?, ?)";
@@ -21,7 +20,6 @@ class Carrito {
         }
     }
 
-    // Método para actualizar la cantidad de un producto en el carrito
     public function actualizarCantidad($idUsuario, $idProducto, $cantidad) {
         try {
             $sql = "UPDATE TAB_CARRITO_USUARIO SET cantidad = ? WHERE id_usuario = ? AND id_producto = ?";
@@ -34,7 +32,6 @@ class Carrito {
         }
     }
 
-    // Método para verificar si un producto ya existe en el carrito
     public function existeProducto($idUsuario, $idProducto) {
         try {
             $sql = "SELECT COUNT(*) AS total FROM TAB_CARRITO_USUARIO WHERE id_usuario = ? AND id_producto = ?";
@@ -50,7 +47,7 @@ class Carrito {
         }
     }
 
-    // Eliminar un producto del carrito
+
     public function eliminarProducto($idUsuario, $idProducto) {
         try {
             $sql = "DELETE FROM TAB_CARRITO_USUARIO WHERE id_usuario = ? AND id_producto = ?";
@@ -91,7 +88,7 @@ class Carrito {
         }
     }
 
-    // Eliminar todos los productos de un cliente
+
     public function vaciarCarrito($idUsuario) {
         try {
             $sql = "DELETE FROM TAB_CARRITO_USUARIO WHERE id_usuario = ?";

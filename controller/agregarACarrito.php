@@ -4,7 +4,7 @@ require_once '../model/db.php';
 require_once '../model/carrito.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verificar si el usuario ha iniciado sesión
+
     if (!isset($_SESSION['idUsuario'])) {
         header("Location: /AmbienteWeb/views/sesion/inicioSesion.php?error=Debe%20iniciar%20sesión%20para%20agregar%20productos%20al%20carrito");
         exit;
@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idProducto = isset($_POST['idProducto']) ? intval($_POST['idProducto']) : null;
     $cantidad = isset($_POST['cantidad']) ? intval($_POST['cantidad']) : null;
 
-    // Validación básica de los datos
     if (!$idProducto || !$cantidad || $cantidad <= 0) {
         header("Location: /AmbienteWeb/views/productos/detalleProducto.php?idProducto=$idProducto&error=Datos%20inválidos");
         exit;

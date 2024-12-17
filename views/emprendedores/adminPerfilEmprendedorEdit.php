@@ -14,7 +14,6 @@ if (!isset($_SESSION['idUsuario']) || !isset($_SESSION['idEmprendimiento'])) {
 }
 
 $idEmprendimiento = $_SESSION['idEmprendimiento'];
-
 $emprendimientoModel = new Emprendimiento($conn);
 $emprendimiento = $emprendimientoModel->obtenerDetalleEmprendimiento($idEmprendimiento);
 
@@ -35,6 +34,11 @@ $provincias = $provinciaModel->obtenerProvincias();
                 <label for="url-imagen" class="perfil-emprendimiento__label">URL de la Imagen</label>
                 <input id="url-imagen" name="url_imagen" class="perfil-emprendimiento__input" type="text"
                     value="<?= htmlspecialchars($emprendimiento['url_imagen_perfil']) ?>" required>
+                
+                <!-- Vista previa de la imagen -->
+                <div class="perfil-emprendimiento__imagen-preview" style="margin-top: 10px;">
+                    <img id="preview-imagen" src="<?= htmlspecialchars($emprendimiento['url_imagen_perfil']) ?>" alt="Imagen del emprendimiento" style="max-width: 200px; max-height: 200px; object-fit: cover;">
+                </div>
             </div>
 
             <!-- Información básica -->
@@ -81,6 +85,19 @@ $provincias = $provinciaModel->obtenerProvincias();
         </div>
     </form>
 </div>
+
+<script>
+
+document.getElementById('url-imagen').addEventListener('input', function() {
+    const url = this.value.trim();
+    const preview = document.getElementById('preview-imagen');
+    if (url) {
+        preview.src = url;
+    } else {
+        preview.src = 'https://ecommerce.navasola.com/assets/images/image-not-found.png';
+    }
+});
+</script>
 
 <?php
 require_once '../layout/footer.php';

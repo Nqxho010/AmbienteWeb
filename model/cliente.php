@@ -94,6 +94,65 @@ class Cliente {
             return [];
         }
     }
+
+    public function cambiarTipoUsuario($idUsuario, $nuevoTipo) {
+        try {
+            $sql = "UPDATE TAB_USUARIOS SET id_tipo_usuario = ? WHERE id_usuario = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("ii", $nuevoTipo, $idUsuario);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            error_log("Error al cambiar tipo de usuario: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function obtenerInformacionCompletaUsuario($idUsuario) {
+        try {
+            $sql = "SELECT 
+                        u.nombre,
+                        u.apellidos,
+                        u.correo,
+                        tu.detalle AS tipo_usuario,
+                        p.detalle AS provincia,
+                        u.detalle_direccion 
+                    FROM 
+                        TAB_USUARIOS u
+                    LEFT JOIN 
+                        TAB_PROVINCIAS p ON u.id_provincia = p.id_provincia
+                    LEFT JOIN
+                        TAB_TIPO_USUARIO tu ON u.id_tipo_usuario = tu.id_tipo_usuario
+                    WHERE 
+                        u.id_usuario = ?";
+    
+            $stmt = $this->conn->prepare($sql);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+    
+            $stmt->bind_param("i", $idUsuario);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } catch (Exception $e) {
+            error_log("Error al obtener la información completa del usuario: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function actualizarDireccionUsuario($idUsuario, $idProvincia, $detalleDireccion) {
+        try {
+            $sql = "UPDATE TAB_USUARIOS SET id_provincia = ?, detalle_direccion = ? WHERE id_usuario = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("isi", $idProvincia, $detalleDireccion, $idUsuario);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            error_log("Error al actualizar dirección: " . $e->getMessage());
+            return false;
+        }
+    }
+    
+    
     
 
 }

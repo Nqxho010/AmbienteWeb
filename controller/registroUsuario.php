@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username) || empty($password)) {
         echo "Por favor, complete todos los campos.";
     } else {
-        // Comprobar si el usuario ya existe
         $sql = "SELECT * FROM tab_usuarios WHERE correo = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $username);
@@ -21,10 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             echo "El usuario ya existe.";
         } else {
-            // Hashear la contraseña
+
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-            // Ejecucion de SQL
             $sql = "INSERT INTO tab_usuarios (correo, contrasenia) VALUES (?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ss", $username, $hashed_password);

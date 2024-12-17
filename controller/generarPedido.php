@@ -94,18 +94,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$resultadoVaciarCarrito) {
             throw new Exception("Error al vaciar el carrito.");
         }
-
         $conn->commit();
 
-        // Redireccionar con éxito
-        header("Location: /AmbienteWeb/views/usuarios/pedidosUsuario.php?success=Pedido%20generado%20exitosamente");
+        header("Location: /AmbienteWeb/index.php");
         exit;
 
     } catch (Exception $e) {
-        // Revertir la transacción en caso de error
         $conn->rollback();
         error_log("Error al generar el pedido: " . $e->getMessage());
-        header("Location: /AmbienteWeb/views/usuarios/carritoUsuario.php?error=" . urlencode($e->getMessage()));
+        header("Location: /AmbienteWeb/index.php" . urlencode($e->getMessage()));
         exit;
     }
 }

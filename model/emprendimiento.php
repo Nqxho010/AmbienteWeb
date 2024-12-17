@@ -34,18 +34,20 @@ class Emprendimiento {
     public function obtenerDetalleEmprendimiento($id_emprendimiento) {
         try {
             $query = "SELECT 
-                          nombre_emprendimiento, 
-                          descripcion_corta, 
-                          descripcion_larga, 
-                          telefono,
-                          id_provincia,
-                          detalle_direccion,
-                          COALESCE(url_imagen_perfil, 'https://ecommerce.navasola.com/assets/images/image-not-found.png') AS url_imagen_perfil
+                          e.id_emprendimiento,
+                          e.id_usuario,
+                          e.nombre_emprendimiento, 
+                          e.descripcion_corta, 
+                          e.descripcion_larga, 
+                          e.telefono,
+                          e.id_provincia,
+                          e.detalle_direccion,
+                          COALESCE(e.url_imagen_perfil, 'https://ecommerce.navasola.com/assets/images/image-not-found.png') AS url_imagen_perfil
                       FROM 
-                          TAB_EMPRENDIMIENTOS 
+                          TAB_EMPRENDIMIENTOS e
                       WHERE 
-                          id_emprendimiento = ? 
-                          AND soft_delete = 0";
+                          e.id_emprendimiento = ? 
+                          AND e.soft_delete = 0";
             $stmt = $this->conn->prepare($query);
             if (!$stmt) {
                 throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
@@ -53,11 +55,11 @@ class Emprendimiento {
             $stmt->bind_param('i', $id_emprendimiento);
             $stmt->execute();
             $result = $stmt->get_result();
-
+    
             if ($result->num_rows === 0) {
                 return null; 
             }
-
+    
             return $result->fetch_assoc();
         } catch (Exception $e) {
             error_log("Error al obtener el detalle del emprendimiento: " . $e->getMessage());
@@ -67,7 +69,6 @@ class Emprendimiento {
 
     public function actualizarEmprendimiento($id_emprendimiento, $nombre, $descripcionCorta, $descripcionLarga, $telefono, $urlImagen, $idProvincia, $detalleDireccion) {
         try {
-            // Asegurarse de que los campos numéricos estén en formato int
             $telefono = (int)$telefono;
             $idProvincia = (int)$idProvincia;
             $id_emprendimiento = (int)$id_emprendimiento;
@@ -90,8 +91,6 @@ class Emprendimiento {
                 throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
             }
 
-            // ss s i s i s i
-            // nombre (s), descripcionCorta (s), descripcionLarga (s), telefono (i), urlImagen (s), idProvincia(i), detalleDireccion(s), id_emprendimiento(i)
             $stmt->bind_param(
                 "sssisisi",
                 $nombre,
@@ -113,61 +112,69 @@ class Emprendimiento {
         }
     }
 
-    public function obtenerEmprendimientosPorCategoria($id_categoria) {
+    public function crearEmprendimiento($id_usuario, $nombre, $descripcionCorta, $descripcionLarga, $telefono, $urlImagen, $idProvincia, $detalleDireccion) {
         try {
-            $query = "SELECT 
-                        e.id_emprendimiento, 
-                        e.nombre_emprendimiento, 
-                        e.descripcion_corta, 
-                        e.url_imagen_perfil 
-                      FROM TAB_EMPRENDIMIENTOS e
-                      INNER JOIN TAB_EMPRENDIMIENTO_CATEGORIAS ec ON e.id_emprendimiento = ec.id_emprendimiento
-                      WHERE ec.id_categoria = ? AND e.soft_delete = 0";
+            $telefono = (int)$telefono;
+            $idProvincia = (int)$idProvincia;
+
+            $query = "INSERT INTO TAB_EMPRENDIMIENTOS (id_usuario, nombre_emprendimiento, descripcion_larga, telefono, url_imagen_perfil, id_provincia, detalle_direccion, descripcion_corta)
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmt = $this->conn->prepare($query);
-            $stmt->bind_param("i", $id_categoria);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+
+            $stmt->bind_param(
+                "issisiss",
+                $id_usuario,
+                $nombre,
+                $descripcionLarga,
+                $telefono,
+                $urlImagen,
+                $idProvincia,
+                $detalleDireccion,
+                $descripcionCorta
+            );
+
+            $resultado = $stmt->execute();
+            $stmt->close();
+
+            return $resultado;
+        } catch (Exception $e) {
+            error_log("Error al crear emprendimiento: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function obtenerEmprendimientosPorCategoria($idCategoria, $limit = 8) {
+        try {
+            $query = "SELECT DISTINCT e.id_emprendimiento, 
+                                     e.nombre_emprendimiento,
+                                     e.descripcion_corta,
+                                     COALESCE(e.url_imagen_perfil, 'https://ecommerce.navasola.com/assets/images/image-not-found.png') AS url_imagen_perfil
+                      FROM TAB_EMPRENDIMIENTOS e
+                      INNER JOIN TAB_EMPRENDIMIENTO_CATEGORIAS ec ON e.id_emprendimiento = ec.id_emprendimiento
+                      WHERE e.soft_delete = 0
+                        AND ec.id_categoria = ?
+                      LIMIT ?";
+
+            $stmt = $this->conn->prepare($query);
+            if (!$stmt) {
+                throw new Exception("Error en la preparación de la consulta: " . $this->conn->error);
+            }
+
+            $stmt->bind_param("ii", $idCategoria, $limit);
             $stmt->execute();
             $result = $stmt->get_result();
 
-            if ($result->num_rows === 0) {
-                return [];
-            }
-
             return $result->fetch_all(MYSQLI_ASSOC);
+
         } catch (Exception $e) {
             error_log("Error al obtener emprendimientos por categoría: " . $e->getMessage());
             return [];
         }
     }
 
-    public function obtenerEmprendimientoPorId($id_emprendimiento) {
-        try {
-            $sql = "SELECT 
-                        e.id_emprendimiento,
-                        e.nombre_emprendimiento,
-                        e.descripcion_corta,
-                        e.descripcion_larga,
-                        e.telefono,
-                        e.url_imagen_perfil,
-                        e.detalle_direccion,
-                        CONCAT(u.nombre, ' ', u.apellidos) AS nombre_propietario
-                    FROM TAB_EMPRENDIMIENTOS e
-                    INNER JOIN TAB_USUARIOS u ON e.id_usuario = u.id_usuario
-                    WHERE e.id_emprendimiento = ? AND e.soft_delete = 0";
-            
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("i", $id_emprendimiento);
-            $stmt->execute();
-            $result = $stmt->get_result();
-    
-            if ($result->num_rows === 0) {
-                return false; // No se encontró el emprendimiento
-            }
-    
-            return $result->fetch_assoc();
-        } catch (Exception $e) {
-            error_log("Error al obtener el emprendimiento: " . $e->getMessage());
-            return false;
-        }
-    }
+
 }
